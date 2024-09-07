@@ -61,6 +61,11 @@ def admin_restaurants_menu():
 5. Back
     '''
     print(text)
+    try:
+        pass
+    except Exception as e:
+        print(f'Error: {e}')
+        admin_restaurants_menu()
 
 
 if __name__ == '__main__':
