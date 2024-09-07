@@ -165,6 +165,14 @@ def owner_restaurant_menu():
 
 # / owner restaurant
 
+# courier menu
+@log_decorator
+def courier_menu():
+    pass
+
+
+# /courier menu
+
 if __name__ == '__main__':
     print('Waiting...')
     auth = Auth()
