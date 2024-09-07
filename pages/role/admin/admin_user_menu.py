@@ -17,3 +17,4 @@ class AdminUserMenu:
         if all_users is None:
             print("Users not found")
             return False
+
