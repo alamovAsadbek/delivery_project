@@ -32,6 +32,10 @@ class Admin:
         return True
 
     # / for user menu
+
+    # for restaurant menu
     @log_decorator
     def create_restaurant(self):
         pass
+
+    # / for restaurant menu
