@@ -26,6 +26,9 @@ class Auth:
         self.__tables.create_products_table()
         self.__tables.create_baskets_table()
         self.__tables.create_basket_items_table()
+        self.__tables.create_orders_table()
+        self.__tables.create_order_items_table()
+        self.__tables.create_requests_table()
         return True
 
     @log_decorator
