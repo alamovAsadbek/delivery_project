@@ -20,13 +20,13 @@ def auth_menu():
                 print('Login failed')
                 auth_menu()
             elif result_login['role'] == 'admin':
-                return admin_menu()
+                admin_menu()
             elif result_login['role'] == 'user':
-                return user_menu()
+                user_menu()
             elif result_login['role'] == 'restaurant':
-                return restaurant_menu()
+                restaurant_menu()
             elif result_login['role'] == 'branch':
-                return branch_menu()
+                branch_menu()
             else:
                 print("Login failed")
                 auth_menu()
@@ -52,9 +52,9 @@ def admin_menu():
     try:
         user_input = int(input('Choose menu: ').strip())
         if user_input == 1:
-            return admin_restaurants_menu()
+            admin_restaurants_menu()
         elif user_input == 2:
-            return admin_users_menu()
+            admin_users_menu()
         elif user_input == 3:
             print('Exit')
             auth_menu()
