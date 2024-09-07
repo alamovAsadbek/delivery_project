@@ -21,9 +21,11 @@ def auth_menu():
                 auth_menu()
             elif result_login['role'] == 'admin':
                 return admin_menu()
-
         elif user_input == 3:
-            pass
+            print('Good bye!')
+            auth.logout()
+            return
+        auth_menu()
     except Exception as e:
         print(f'Error: {e}')
         auth_menu()
