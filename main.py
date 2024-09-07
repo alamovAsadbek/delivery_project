@@ -46,7 +46,14 @@ def admin_menu():
 
 @log_decorator
 def admin_restaurants_menu():
-    pass
+    text = '''
+1. Create Restaurant
+2. Update Restaurant
+3. Delete Restaurant
+4. Show all Restaurants
+5. Back
+    '''
+    print(text)
 
 
 if __name__ == '__main__':
