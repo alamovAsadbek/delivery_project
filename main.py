@@ -83,13 +83,13 @@ def admin_restaurants_menu():
     try:
         user_input = int(input('Choose menu: ').strip())
         if user_input == 1:
-            admin.show_all_restaurants()
+            pass
         elif user_input == 2:
             pass
         elif user_input == 3:
             pass
         elif user_input == 4:
-            pass
+            admin.show_all_restaurants()
         elif user_input == 5:
             return admin_menu()
         else:
