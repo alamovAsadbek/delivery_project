@@ -102,10 +102,18 @@ class AdminUserMenu:
             print('Do you want to delete the user?')
             confirm_delete = input('Y/N').strip().lower()
             if confirm_delete == 'y':
-                query='''
+                query = '''
                 DELETE FROM users WHERE id=%s;
                 '''
-
+                params = (user_id,)
+                threading.Thread(target=execute_query, args=(query, params)).start()
+                print("Deleted successfully")
+                return True
+            elif confirm_delete == 'n':
+                print("Cancel")
+                return False
+            else:
+                print("Invalid choice")
 
     @log_decorator
     def get_data(self, table_name: str, table_id: int = None):
