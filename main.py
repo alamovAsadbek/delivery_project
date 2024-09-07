@@ -62,7 +62,20 @@ def admin_restaurants_menu():
     '''
     print(text)
     try:
-        pass
+        user_input = int(input('Choose menu: ').strip())
+        if user_input == 1:
+            pass
+        elif user_input == 2:
+            pass
+        elif user_input == 3:
+            pass
+        elif user_input == 4:
+            pass
+        elif user_input == 5:
+            return admin_menu()
+        else:
+            print("Wrong input")
+            return admin_restaurants_menu()
     except Exception as e:
         print(f'Error: {e}')
         admin_restaurants_menu()
