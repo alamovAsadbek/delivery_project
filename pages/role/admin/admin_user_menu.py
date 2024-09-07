@@ -98,6 +98,14 @@ class AdminUserMenu:
         print(f"\nID: {result_get['id']}\nFirst name: {result_get['first_name']}\n"
               f"Last name: {result_get['last_name']}\nUsername: {result_get['username']}\n"
               f"Phone number: {result_get['phone_number']}\nRole: {result_get['role']}\n")
+        while True:
+            print('Do you want to delete the user?')
+            confirm_delete = input('Y/N').strip().lower()
+            if confirm_delete == 'y':
+                query='''
+                DELETE FROM users WHERE id=%s;
+                '''
+
 
     @log_decorator
     def get_data(self, table_name: str, table_id: int = None):
