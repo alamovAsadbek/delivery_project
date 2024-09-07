@@ -113,4 +113,15 @@ class Tables:
 
     @log_decorator
     def create_order_items_table(self):
-        pass
+        query = '''
+        CREATE TABLE IF NOT EXISTS order_items (
+        ID BIGSERIAL PRIMARY KEY,
+        ORDER_ID BIGINT NOT NULL REFERENCES orders(ID) ON DELETE CASCADE,
+        PRICE BIGINT NOT NULL,
+        NAME VARCHAR(255) NOT NULL,
+        QUANTITY BIGINT NOT NULL,
+        BRANCH_ID BIGINT NOT NULL REFERENCES branch(ID) ON DELETE CASCADE,
+        )
+        '''
+        execute_query(query)
+        return True
