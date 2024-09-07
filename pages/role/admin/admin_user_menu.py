@@ -1,9 +1,17 @@
 from components.pagination.pagination import Pagination
+from components.random_password.generate_password import generate_password
 from components.random_username.generate_username import get_username
 from main_files.decorator.decorator_func import log_decorator
 
 
 class AdminUserMenu:
+    @log_decorator
+    def print_bold(self, text, color_code):
+        BOLD = '\033[1m'
+        RESET = '\033[0m'
+        color = f'\033[{color_code}m'
+        return f"{BOLD}{color}{text}{RESET}"
+
     @log_decorator
     def show_all_users(self):
         pagination = Pagination(table_name='users',
@@ -37,4 +45,5 @@ class AdminUserMenu:
             username = get_username(table_name='users', name=first_name, key=role)
         else:
             username = get_username(table_name='couriers', name=first_name)
-        print(username)
+        password = generate_password()
+        print(f'{role.capitalize()} username: {username}')
