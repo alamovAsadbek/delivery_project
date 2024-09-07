@@ -26,7 +26,8 @@ class Admin:
 
     @log_decorator
     def delete_user(self):
-        pass
+        self.__user_menu.delete_user()
+        return True
 
     # / for user menu
     @log_decorator
