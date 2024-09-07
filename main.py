@@ -1,11 +1,8 @@
 from main_files.decorator.decorator_func import log_decorator
-from pages.auth.auth import Auth
 
 
 @log_decorator
 def auth_menu():
-    print('Waiting...')
-    auth = Auth()
     text = '''
 1. Register 
 2. Login    
