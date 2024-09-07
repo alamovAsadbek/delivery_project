@@ -1,4 +1,5 @@
 import hashlib
+import threading
 
 from main_files.database.db_setting import execute_query
 from main_files.decorator.decorator_func import log_decorator
@@ -20,6 +21,7 @@ class Auth:
 
     @log_decorator
     def logout(self):
+        threading.Thread(target=self.__tables.create_restaurants_table).start()
         self.__tables.create_users_table()
         query = '''UPDATE users SET IS_LOGIN=FALSE;'''
         execute_query(query)
