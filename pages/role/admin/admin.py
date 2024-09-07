@@ -35,6 +35,10 @@ class Admin:
 
     # for restaurant menu
     @log_decorator
+    def show_all_restaurants(self):
+        pass
+
+    @log_decorator
     def create_restaurant(self):
         pass
 
