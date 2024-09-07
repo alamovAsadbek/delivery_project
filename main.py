@@ -21,9 +21,9 @@ def auth_menu():
                 auth_menu()
             elif result_login['role'] == 'admin':
                 return admin_menu()
-            elif result_login['role'] == 'users':
+            elif result_login['role'] == 'user':
                 return user_menu()
-            elif result_login['role'] == 'restaurants':
+            elif result_login['role'] == 'restaurant':
                 return restaurant_menu()
             elif result_login['role'] == 'branch':
                 return branch_menu()
