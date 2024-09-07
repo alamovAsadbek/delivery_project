@@ -5,4 +5,3 @@ class Admin:
     @log_decorator
     def create_restaurant(self):
         pass
-    print('owner_restaurant')
