@@ -86,7 +86,18 @@ class AdminUserMenu:
 
     @log_decorator
     def delete_user(self):
-        pass
+        self.show_all_users()
+        user_id = int(input('Enter your user ID or 0 to log out: ').strip())
+        if user_id == 0:
+            print("Exit")
+            return True
+        result_get = self.get_data(table_name='users', table_id=user_id)
+        if result_get is None:
+            print("Invalid user ID")
+            return False
+        print(f"\nID: {result_get['id']}\nFirst name: {result_get['first_name']}\n"
+              f"Last name: {result_get['last_name']}\nUsername: {result_get['username']}\n"
+              f"Phone number: {result_get['phone_number']}\nRole: {result_get['role']}\n")
 
     @log_decorator
     def get_data(self, table_name: str, table_id: int = None):
