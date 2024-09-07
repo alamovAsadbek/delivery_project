@@ -17,9 +17,11 @@ def auth_menu():
         elif user_input == 2:
             result_login = auth.login()
             if not result_login['is_login']:
+                print('Login failed')
                 auth_menu()
             elif result_login['role'] == 'admin':
                 pass
+
         elif user_input == 3:
             pass
     except Exception as e:
