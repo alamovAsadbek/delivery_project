@@ -20,6 +20,10 @@ class Auth:
         return {'is_login': False}
 
     @log_decorator
+    def create_tables(self):
+        pass
+
+    @log_decorator
     def logout(self):
         threading.Thread(target=self.__tables.create_restaurants_table).start()
         threading.Thread(target=self.__tables.create_branch_table).start()
