@@ -119,4 +119,4 @@ WHERE id = '%s';
 -- Admin tomonidan userlarni uchirish uchun query
 DELETE
 FROM users
-WHERE id ='% s';
+WHERE id = '% s';

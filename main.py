@@ -30,7 +30,7 @@ def auth_menu():
                 restaurant_menu()
             elif result_login['role'] == 'branch':
                 branch_menu()
-            elif result_login['role'] == 'owner_restaurant':
+            elif result_login['role'] == 'owner':
                 owner_restaurant_menu()
             else:
                 print("Login failed")
