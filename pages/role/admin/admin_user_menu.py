@@ -13,4 +13,7 @@ class AdminUserMenu:
 
     @log_decorator
     def show_all_users(self):
-        pass
+        all_users = self.get_data()
+        if all_users is None:
+            print("Users not found")
+            return False
