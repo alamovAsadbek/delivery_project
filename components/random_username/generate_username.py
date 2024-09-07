@@ -25,8 +25,8 @@ def get_username(name: str, table_name, key=None) -> str:
     while True:
         username = __generate_username(name, key=key)
         query = '''
-         SELECT * FROM %s WHERE USERNAME=%s;
-         '''
+         SELECT * FROM {} WHERE USERNAME=%s;
+         '''.format(table_name)
         params = (table_name, username,)
         result = execute_query(query, params, fetch='one')
         if result is not None:
