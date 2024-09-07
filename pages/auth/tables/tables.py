@@ -41,4 +41,16 @@ class Tables:
 
     @log_decorator
     def create_branch_table(self):
-        pass
+        query='''
+        CREATE TABLE IF NOT EXISTS branch (
+        ID BIGSERIAL PRIMARY KEY,
+        NAME VARCHAR(255) NOT NULL,
+        LOCATION VARCHAR(255) NOT NULL,
+        RESTAURANT_ID VARCHAR(255) NOT NULL REFERENCES restaurants(ID) ON DELETE CASCADE,
+        PASSWORD VARCHAR(255) NOT NULL,
+        USERNAME VARCHAR(255) NOT NULL UNIQUE,
+        PHONE_NUMBER BIGINT NOT NULL UNIQUE,
+        ROLE VARCHAR(255) NOT NULL,
+        CREATED_AT TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP
+        )
+        '''
