@@ -6,7 +6,7 @@ from main_files.decorator.decorator_func import log_decorator
 
 
 @log_decorator
-def __generate_username(name: str) -> str:
+def __generate_username(name: str, key=None) -> str:
     # Strip and lower case the name
     base_name = name.strip().lower()
     # Replace spaces with underscores
@@ -15,7 +15,9 @@ def __generate_username(name: str) -> str:
     base_name = re.sub(r'\W', '', base_name)
     # Generate a random number
     random_number = random.randint(1, 9999)
-    return f"{base_name}_{random_number}"
+    if key is None:
+        return f"{base_name}_{random_number}"
+    return f"{base_name}_{random_number}_{key}"
 
 
 @log_decorator
