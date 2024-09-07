@@ -115,3 +115,8 @@ VALUES ('', '', '', '', '', '');
 UPDATE users
 SET password='%s'
 WHERE id = '%s';
+
+-- Admin tomonidan userlarni uchirish uchun query
+DELETE
+FROM users
+WHERE id ='% s';
