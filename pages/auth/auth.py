@@ -1,6 +1,7 @@
 import hashlib
 import threading
 
+from components.random_password.generate_password import generate_password
 from components.random_username.generate_username import get_username
 from main_files.database.db_setting import execute_query
 from main_files.decorator.decorator_func import log_decorator
@@ -11,6 +12,12 @@ class Auth:
     def __init__(self):
         self.__admin = {'username': 'admin', 'password': hashlib.sha256('admin'.encode()).hexdigest()}
         self.__tables = Tables()
+
+    @log_decorator
+    def print_bold(self, text):
+        BOLD = '\033[1m'
+        RESET = '\033[0m'
+        return f"{BOLD}{text}{RESET}"
 
     @log_decorator
     def login(self):
@@ -27,6 +34,8 @@ class Auth:
         phone_number: int = int(input('Phone number ( +998 ) : '))
         print('Your account is being created...')
         username = get_username(name=first_name, table_name='users')
+        password = generate_password()
+        print(f'\nYour username is {self.print_bold(username)} and password is {self.print_bold(password)}\n')
         print(username)
 
     @log_decorator
