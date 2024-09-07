@@ -3,6 +3,7 @@ import threading
 
 from psycopg2 import sql
 
+from components.color_text.color_text import print_bold
 from components.random_password.generate_password import generate_password
 from components.random_username.generate_username import get_username
 from main_files.database.db_setting import execute_query
@@ -14,13 +15,6 @@ class Auth:
     def __init__(self):
         self.__admin = {'username': 'admin', 'password': hashlib.sha256('admin'.encode()).hexdigest()}
         self.__tables = Tables()
-
-    @log_decorator
-    def print_bold(self, text, color_code):
-        BOLD = '\033[1m'
-        RESET = '\033[0m'
-        color = f'\033[{color_code}m'
-        return f"{BOLD}{color}{text}{RESET}"
 
     @log_decorator
     def login(self):
@@ -47,8 +41,8 @@ class Auth:
         username = get_username(name=first_name, table_name='users')
         password = generate_password()
         hash_password = hashlib.sha256(password.__str__().encode('utf-8')).hexdigest()
-        print(f'\nYour username is {self.print_bold(username, 32)} '
-              f'and password is {self.print_bold(password, 32)}\n')
+        print(f'\nYour username is {print_bold(username, 32)} '
+              f'and password is {print_bold(password, 32)}\n')
         query = '''
         INSERT INTO users(FIRST_NAME, LAST_NAME, username, password, phone_number, ROLE)
         VALUES (%s, %s, %s, %s, %s, %s);
