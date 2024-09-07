@@ -160,6 +160,7 @@ def branch_menu():
 # owner restaurant
 @log_decorator
 def owner_restaurant_menu():
+    print("Owner menu")
     pass
 
 
