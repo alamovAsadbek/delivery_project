@@ -24,6 +24,7 @@ class Auth:
         threading.Thread(target=self.__tables.create_restaurants_table).start()
         threading.Thread(target=self.__tables.create_branch_table).start()
         threading.Thread(target=self.__tables.create_products_table).start()
+        threading.Thread(target=self.__tables.create_baskets_table).start()
         self.__tables.create_users_table()
         query = '''UPDATE users SET IS_LOGIN=FALSE;'''
         execute_query(query)
