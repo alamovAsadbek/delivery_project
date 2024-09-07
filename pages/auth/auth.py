@@ -22,11 +22,20 @@ class Auth:
 
     @log_decorator
     def login(self):
+        tables = ['users', 'restaurants', 'branch']
         username: str = input('Username: ').strip()
         password: str = hashlib.sha256(input('Password: ').strip().encode('utf-8')).hexdigest()
         if username == self.__admin['username'] and password == self.__admin['password']:
             return {'is_login': True, 'role': 'admin'}
-        return {'is_login': False}
+        for table in tables:
+            query = '''
+            SELECT * FROM {} WHERE username = %s AND password = %s
+            '''.format(table)
+            params = (username, password)
+            result_get = execute_query(query, params)
+            if result_get is not None:
+                return {'is_login': True, 'role': table}
+        return {'is_login': False, 'role': 'user'}
 
     @log_decorator
     def register(self):
