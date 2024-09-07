@@ -109,4 +109,4 @@ CREATE TABLE IF NOT EXISTS requests
 
 -- Register bo'lgan userni databasega yozish uchun query
 INSERT INTO users(FIRST_NAME, LAST_NAME, username, password, phone_number, ROLE)
-VALUES ('', '', '', '', '', '')
+VALUES ('', '', '', '', '', '');
