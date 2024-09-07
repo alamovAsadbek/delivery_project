@@ -65,5 +65,14 @@ class AdminUserMenu:
             return True
 
     @log_decorator
-    def get_data(self, table_name: str, id: int):
-        pass
+    def get_data(self, table_name: str, table_id: int = None):
+        if table_id is not None:
+            query = '''
+            SELECT * FROM {} WHERE id = %s;
+            '''.format(table_name)
+            params = (table_id,)
+            return execute_query(query, params)
+        query = '''
+        SELECT * FROM {};
+        '''.format(table_name)
+        return execute_query(query)
