@@ -1,7 +1,11 @@
+import hashlib
+import threading
+
 from components.color_text.color_text import print_bold
 from components.pagination.pagination import Pagination
 from components.random_password.generate_password import generate_password
 from components.random_username.generate_username import get_username
+from main_files.database.db_setting import execute_query
 from main_files.decorator.decorator_func import log_decorator
 
 
@@ -41,5 +45,13 @@ class AdminUserMenu:
         else:
             username = get_username(table_name='couriers', name=first_name)
         password = generate_password()
-        print(f'{role.capitalize()} username: {print_bold(username, 32)}')
-
+        print(f'{role.capitalize()} username: {print_bold(username, 32)} and password: {print_bold(password, 32)}')
+        hash_password = hashlib.sha256(password.__str__().encode('utf-8')).hexdigest()
+        query = '''
+                INSERT INTO users(FIRST_NAME, LAST_NAME, username, password, phone_number, ROLE)
+                VALUES (%s, %s, %s, %s, %s, %s);
+        '''
+        params = (first_name, last_name, username, hash_password, phone_number, role)
+        threading.Thread(target=execute_query, args=(query, params)).start()
+        print(f"{role.capitalize()} created successfully")
+        return True
