@@ -71,3 +71,7 @@ class Tables:
         '''
         execute_query(query)
         return True
+
+    @log_decorator
+    def create_baskets_table(self):
+        pass
