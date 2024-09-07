@@ -128,6 +128,7 @@ def admin_users_menu():
 # user menu
 @log_decorator
 def user_menu():
+    print("This is user menu")
     pass
 
 
