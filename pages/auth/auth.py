@@ -12,4 +12,4 @@ class Auth:
         username: str = input('Username: ').strip()
         password: str = hashlib.sha256(input('Password: ').strip().encode('utf-8')).hexdigest()
         if username == self.__admin['username'] and password == self.__admin['password']:
-            pass
+            return {'is_login': True, 'role': 'admin'}
