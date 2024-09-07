@@ -5,7 +5,7 @@ from main_files.decorator.decorator_func import log_decorator
 
 class Auth:
     def __init__(self):
-        pass
+        self.__admin = {'username': 'admin', 'password': 'admin'}
 
     @log_decorator
     def login(self):
