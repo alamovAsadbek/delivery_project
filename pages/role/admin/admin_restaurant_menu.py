@@ -30,6 +30,7 @@ class AdminRestaurantMenu:
         name = input("Enter restaurant name: ").strip()
         phone_number = int(input("Enter phone number ( +998 ): ").strip())
         company_fee = int(input("Enter company fee (0-100): ").strip())
+        print("Waiting...")
         query = '''
         SELECT * FROM users
         WHERE role='owner'
@@ -49,3 +50,7 @@ class AdminRestaurantMenu:
                 break
             print('Wrong input')
         user_id: int = int(input("Enter user id: ").strip())
+        get_data = self.get_data(user_id, table_name='users')
+        if get_data is None:
+            print('User does not exist')
+            return False
