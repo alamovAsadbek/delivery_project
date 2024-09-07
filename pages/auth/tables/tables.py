@@ -12,7 +12,7 @@ class Tables:
             LAST_NAME VARCHAR(255) NOT NULL,
             username VARCHAR(255) NOT NULL,
             password VARCHAR(255) NOT NULL,
-            phone_number BIGINT NOT NULL,
+            phone_number BIGINT NOT NULL UNIQUE,
             ROLE VARCHAR(255) NOT NULL,
             IS_LOGIN BOOLEAN NOT NULL DEFAULT FALSE,
             CREATED_AT TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP        
