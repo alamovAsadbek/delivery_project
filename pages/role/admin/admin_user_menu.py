@@ -18,7 +18,7 @@ class AdminUserMenu:
         if all_users is None:
             print("Users not found")
             return False
-        pagination = Pagination(table_name='users', data=all_users,
+        pagination = Pagination(table_name='users',
                                 table_keys=['id', 'first_name', 'last_name', 'phone_number', 'role', 'created_at'],
                                 display_keys=['ID', 'FIRST_NAME', 'LAST_NAME', 'PHONE_NUMBER', 'ROLE', 'created_at'])
         pagination.page_tab()
