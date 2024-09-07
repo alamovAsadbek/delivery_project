@@ -91,6 +91,11 @@ def admin_users_menu():
 5. Back
     '''
     print(text)
+    try:
+        pass
+    except Exception as e:
+        print(f'Error: {e}')
+        admin_users_menu()
 
 
 if __name__ == '__main__':
