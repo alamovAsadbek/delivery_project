@@ -123,6 +123,14 @@ def user_menu():
 
 
 # /user menu
+
+# restaurant menu
+@log_decorator
+def restaurant_menu():
+    pass
+
+
+# /restaurant menu
 if __name__ == '__main__':
     print('Waiting...')
     auth = Auth()
