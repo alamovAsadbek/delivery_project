@@ -19,6 +19,10 @@ class Admin:
         self.__user_menu.create_user()
         return True
 
+    @log_decorator
+    def update_user(self):
+        pass
+
     # / for user menu
     @log_decorator
     def create_restaurant(self):
