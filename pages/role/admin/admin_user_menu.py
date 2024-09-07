@@ -71,11 +71,15 @@ class AdminUserMenu:
         print(f"\nID: {result_get['id']}\nFirst name: {result_get['first_name']}\n"
               f"Last name: {result_get['last_name']}\nUsername: {result_get['username']}\n"
               f"Phone number: {result_get['phone_number']}\nRole: {result_get['role']}\n")
-        password = hashlib.sha256(input('Enter new password: ').strip().encode('utf-8')).hexdigest()
+        password = input('Enter new password: ').strip()
+        while password == '' or len(password) < 4:
+            print("Invalid password, Must be at least 4 characters")
+            password = input('Enter new password: ').strip()
+        hash_password = hashlib.sha256(password.__str__().encode('utf-8')).hexdigest()
         query = '''
         UPDATE users SET password=%s WHERE id=%s;
         '''
-        params = (password, user_id)
+        params = (hash_password, user_id)
         threading.Thread(target=execute_query, args=(query, params)).start()
         print("Updated successfully")
         return True
