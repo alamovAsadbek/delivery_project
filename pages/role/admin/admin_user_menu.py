@@ -72,6 +72,13 @@ class AdminUserMenu:
               f"Last name: {result_get['last_name']}\nUsername: {result_get['username']}\n"
               f"Phone number: {result_get['phone_number']}\nRole: {result_get['role']}\n")
         password = hashlib.sha256(input('Enter new password: ').strip().encode('utf-8')).hexdigest()
+        query = '''
+        UPDATE users SET password=%s WHERE id=%s;
+        '''
+        params = (password, user_id)
+        threading.Thread(target=execute_query, args=(query, params)).start()
+        print("Updated successfully")
+        return True
 
     @log_decorator
     def get_data(self, table_name: str, table_id: int = None):
