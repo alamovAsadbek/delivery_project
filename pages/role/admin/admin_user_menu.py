@@ -55,3 +55,7 @@ class AdminUserMenu:
         threading.Thread(target=execute_query, args=(query, params)).start()
         print(f"{role.capitalize()} created successfully")
         return True
+
+    @log_decorator
+    def update_user(self):
+        pass
