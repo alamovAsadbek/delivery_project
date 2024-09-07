@@ -36,4 +36,8 @@ class AdminRestaurantMenu:
             print('\n1. Add new owner\n2. Enter user id')
             user_choice = int(input("Enter user id: ").strip())
             if user_choice == 1:
-                pass
+                self.__user_menu.create_user()
+                continue
+            elif user_choice == 2:
+                break
+            print('Wrong input')
