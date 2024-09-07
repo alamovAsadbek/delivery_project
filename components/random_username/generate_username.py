@@ -21,13 +21,13 @@ def __generate_username(name: str, key=None) -> str:
 
 
 @log_decorator
-def get_username_for_users(name: str) -> str:
+def get_username_for_users(name: str, table_name) -> str:
     while True:
         username = __generate_username(name)
         query = '''
-         SELECT * FROM users WHERE USERNAME=%s;
+         SELECT * FROM %s WHERE USERNAME=%s;
          '''
-        params = (username,)
+        params = (table_name, username,)
         result = execute_query(query, params, fetch='one')
         if result is not None:
             continue
