@@ -117,7 +117,7 @@ def admin_users_menu():
         elif user_input == 2:
             admin.update_user()
         elif user_input == 3:
-            pass
+            admin.delete_user()
         elif user_input == 4:
             admin.show_all_users()
         elif user_input == 5:
