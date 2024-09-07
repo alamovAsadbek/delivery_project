@@ -16,15 +16,20 @@ class AdminUserMenu:
         first_name = input('First Name: ').strip()
         last_name = input('Last Name: ').strip()
         phone_number = input('Phone Number: ').strip()
+        role = 'user'
         while True:
             print("\nChoose user role")
             print("1. User\t2. Courier\t3. Owner restaurant")
             user_choice = int(input("Enter your choice: ").strip())
             if user_choice == 1:
-                pass
+                role = 'user'
             elif user_choice == 2:
-                pass
+                role = 'courier'
             elif user_choice == 3:
-                pass
+                role = 'owner_restaurant'
             else:
                 print("Invalid choice")
+                continue
+            break
+        print("Creating an account...")
+        username = 'user'
