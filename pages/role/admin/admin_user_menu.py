@@ -68,7 +68,10 @@ class AdminUserMenu:
         if result_get is None:
             print("Invalid user ID")
             return False
-        print(result_get)
+        print(f"\nID: {result_get['id']}\nFirst name: {result_get['first_name']}\n"
+              f"Last name: {result_get['last_name']}\nUsername: {result_get['username']}\n"
+              f"Phone number: {result_get['phone_number']}\nRole: {result_get['role']}\n")
+        password = hashlib.sha256(input('Enter new password: ').strip().encode('utf-8')).hexdigest()
 
     @log_decorator
     def get_data(self, table_name: str, table_id: int = None):
