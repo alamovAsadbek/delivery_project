@@ -13,4 +13,18 @@ class AdminUserMenu:
 
     @log_decorator
     def create_user(self):
-        pass
+        first_name = input('First Name: ').strip()
+        last_name = input('Last Name: ').strip()
+        phone_number = input('Phone Number: ').strip()
+        while True:
+            print("\nChoose user role")
+            print("1. User\t2. Courier\t3. Owner restaurant")
+            user_choice = int(input("Enter your choice: ").strip())
+            if user_choice == 1:
+                pass
+            elif user_choice == 2:
+                pass
+            elif user_choice == 3:
+                pass
+            else:
+                print("Invalid choice")
