@@ -41,7 +41,7 @@ class Tables:
 
     @log_decorator
     def create_branch_table(self):
-        query='''
+        query = '''
         CREATE TABLE IF NOT EXISTS branch (
         ID BIGSERIAL PRIMARY KEY,
         NAME VARCHAR(255) NOT NULL,
@@ -54,3 +54,5 @@ class Tables:
         CREATED_AT TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP
         )
         '''
+        execute_query(query)
+        return True
