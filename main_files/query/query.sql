@@ -106,3 +106,7 @@ CREATE TABLE IF NOT EXISTS requests
     STATUS     VARCHAR(255) NOT NULL,
     CREATED_AT TIMESTAMP    NULL                                         DEFAULT CURRENT_TIMESTAMP
 );
+
+-- Register bo'lgan userni databasega yozish uchun query
+INSERT INTO users(FIRST_NAME, LAST_NAME, username, password, phone_number, ROLE)
+VALUES ('', '', '', '', '', '')
