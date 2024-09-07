@@ -20,6 +20,10 @@ class Auth:
         return {'is_login': False}
 
     @log_decorator
+    def register(self):
+        pass
+
+    @log_decorator
     def create_tables(self):
         self.__tables.create_restaurants_table()
         self.__tables.create_branch_table()
