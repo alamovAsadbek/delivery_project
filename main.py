@@ -27,3 +27,8 @@ def auth_menu():
     except Exception as e:
         print(f'Error: {e}')
         auth_menu()
+
+
+@log_decorator
+def admin_menu():
+    pass
