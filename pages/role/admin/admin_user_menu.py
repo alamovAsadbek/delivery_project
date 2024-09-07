@@ -85,6 +85,10 @@ class AdminUserMenu:
         return True
 
     @log_decorator
+    def delete_user(self):
+        pass
+
+    @log_decorator
     def get_data(self, table_name: str, table_id: int = None):
         if table_id is not None:
             query = '''
