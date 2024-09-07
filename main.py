@@ -20,7 +20,7 @@ def auth_menu():
                 print('Login failed')
                 auth_menu()
             elif result_login['role'] == 'admin':
-                pass
+                return admin_menu()
 
         elif user_input == 3:
             pass
