@@ -1,3 +1,4 @@
+from components.color_text.color_text import print_bold
 from components.pagination.pagination import Pagination
 from components.random_password.generate_password import generate_password
 from components.random_username.generate_username import get_username
@@ -40,4 +41,5 @@ class AdminUserMenu:
         else:
             username = get_username(table_name='couriers', name=first_name)
         password = generate_password()
-        print(f'{role.capitalize()} username: {username}')
+        print(f'{role.capitalize()} username: {print_bold(username, 32)}')
+
