@@ -9,6 +9,10 @@ class AdminRestaurantMenu:
         self.__user_menu = AdminUserMenu()
 
     @log_decorator
+    def get_data(self):
+        pass
+
+    @log_decorator
     def show_all_restaurants(self):
         print("Waiting...")
         query = '''
@@ -41,3 +45,4 @@ class AdminRestaurantMenu:
             elif user_choice == 2:
                 break
             print('Wrong input')
+        user_id: int = int(input("Enter user id: ").strip())
