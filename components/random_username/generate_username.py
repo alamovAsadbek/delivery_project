@@ -17,7 +17,7 @@ def __generate_username(name: str, key=None) -> str:
     random_number = random.randint(1, 9999)
     if key is None:
         return f"{base_name}_{random_number}"
-    return f"{base_name}_{random_number}_{key}"
+    return f"{key}_{base_name}_{random_number}"
 
 
 @log_decorator
