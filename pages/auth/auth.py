@@ -14,10 +14,11 @@ class Auth:
         self.__tables = Tables()
 
     @log_decorator
-    def print_bold(self, text):
+    def print_bold(self, text, color_code):
         BOLD = '\033[1m'
         RESET = '\033[0m'
-        return f"{BOLD}{text}{RESET}"
+        color = f'\033[{color_code}m'
+        return f"{BOLD}{color}{text}{RESET}"
 
     @log_decorator
     def login(self):
@@ -35,7 +36,8 @@ class Auth:
         print('Your account is being created...')
         username = get_username(name=first_name, table_name='users')
         password = generate_password()
-        print(f'\nYour username is {self.print_bold(username)} and password is {self.print_bold(password)}\n')
+        print(f'\nYour username is {self.print_bold(username, 32)} '
+              f'and password is {self.print_bold(password, 32)}\n')
         print(username)
 
     @log_decorator
