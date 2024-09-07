@@ -7,9 +7,10 @@ class Admin:
         self.__user_menu = AdminUserMenu()
 
     # for user menu
-    
+
     @log_decorator
     def show_all_users(self):
+        print("Waiting...")
         self.__user_menu.show_all_users()
         return True
 
