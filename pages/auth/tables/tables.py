@@ -128,4 +128,14 @@ class Tables:
 
     @log_decorator
     def create_requests_table(self):
-        pass
+        query = '''
+        CREATE TABLE IF NOT EXISTS requests (
+        ID BIGSERIAL PRIMARY KEY,
+        ORDER_ID NOT NULL REFERENCES orders(ID) ON DELETE CASCADE,
+        COURIER_ID BIGINT NULL REFERENCES USERS(ID) ON DELETE CASCADE DEFAULT NULL,
+        STATUS VARCHAR(255) NOT NULL,
+        CREATED_AT TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP
+        )
+        '''
+        execute_query(query)
+        return True
