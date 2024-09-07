@@ -58,4 +58,9 @@ class AdminUserMenu:
 
     @log_decorator
     def update_user(self):
-        pass
+        print("Choose user ID")
+        self.show_all_users()
+        user_id = int(input('Enter your user ID or 0 to log out: ').strip())
+        if user_id == 0:
+            print("Exit")
+            return True
