@@ -70,6 +70,8 @@ def admin_menu():
 
 @log_decorator
 def admin_restaurants_menu():
+    print("Waiting...")
+    admin = Admin()
     text = '''
 1. Create Restaurant
 2. Update Restaurant
@@ -92,7 +94,7 @@ def admin_restaurants_menu():
             return admin_menu()
         else:
             print("Wrong input")
-            return admin_restaurants_menu()
+        admin_restaurants_menu()
     except Exception as e:
         print(f'Error: {e}')
         admin_restaurants_menu()
