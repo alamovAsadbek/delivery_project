@@ -32,6 +32,7 @@ class Auth:
         password: str = hashlib.sha256(input('Password: ').strip().encode('utf-8')).hexdigest()
         if username == self.__admin['username'] and password == self.__admin['password']:
             return {'is_login': True, 'role': 'admin'}
+        return {'is_login': False}
 
     @log_decorator
     def logout(self):
