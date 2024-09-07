@@ -125,3 +125,7 @@ class Tables:
         '''
         execute_query(query)
         return True
+
+    @log_decorator
+    def create_requests_table(self):
+        pass
