@@ -9,8 +9,11 @@ class AdminRestaurantMenu:
         self.__user_menu = AdminUserMenu()
 
     @log_decorator
-    def get_data(self):
-        pass
+    def get_data(self, data_id, table_name):
+        query = '''
+        SELECT * FROM {} WHERE id=%s
+        '''.format(table_name)
+        return execute_query(query, data_id, fetch='one')
 
     @log_decorator
     def show_all_restaurants(self):
