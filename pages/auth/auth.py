@@ -1,6 +1,7 @@
 import hashlib
 import threading
 
+from components.random_username.generate_username import get_username
 from main_files.database.db_setting import execute_query
 from main_files.decorator.decorator_func import log_decorator
 from pages.auth.tables.tables import Tables
@@ -25,6 +26,7 @@ class Auth:
         last_name: str = input('Last name: ').strip()
         phone_number: int = int(input('Phone number ( +998 ) : '))
         print('Your account is being created...')
+        username = get_username(name=first_name)
 
     @log_decorator
     def create_tables(self):
