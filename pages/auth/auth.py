@@ -24,6 +24,7 @@ class Auth:
         first_name: str = input('First name: ').strip()
         last_name: str = input('Last name: ').strip()
         phone_number: int = int(input('Phone number ( +998 ) : '))
+        print('Your account is being created...')
 
     @log_decorator
     def create_tables(self):

@@ -21,7 +21,7 @@ def __generate_username(name: str, key=None) -> str:
 
 
 @log_decorator
-def get_username_for_users(name: str, table_name) -> str:
+def get_username(name: str, table_name, key=None) -> str:
     while True:
         username = __generate_username(name)
         query = '''
