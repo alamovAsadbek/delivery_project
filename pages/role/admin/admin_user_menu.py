@@ -65,5 +65,5 @@ class AdminUserMenu:
             return True
 
     @log_decorator
-    def get_data(self):
+    def get_data(self, table_name: str, id: int):
         pass
