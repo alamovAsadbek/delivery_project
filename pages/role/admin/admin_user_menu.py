@@ -10,3 +10,7 @@ class AdminUserMenu:
                                 display_keys=['ID', 'FIRST_NAME', 'LAST_NAME', 'PHONE_NUMBER', 'ROLE', 'created_at'])
         pagination.page_tab()
         return True
+
+    @log_decorator
+    def create_user(self):
+        pass
