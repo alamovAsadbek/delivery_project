@@ -27,6 +27,8 @@ def auth_menu():
                 restaurant_menu()
             elif result_login['role'] == 'branch':
                 branch_menu()
+            elif result_login['role'] == 'owner_restaurant':
+                pass
             else:
                 print("Login failed")
                 auth_menu()
@@ -149,6 +151,14 @@ def branch_menu():
 
 
 # /branch menu
+
+# owner restaurant
+@log_decorator
+def owner_restaurant():
+    pass
+
+
+# / owner restaurant
 
 if __name__ == '__main__':
     print('Waiting...')
