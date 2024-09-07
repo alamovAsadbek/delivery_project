@@ -12,3 +12,7 @@ class AdminRestaurantMenu:
         '''
         result = execute_query(query, fetch='all')
         print(result)
+
+    @log_decorator
+    def create_restaurant(self):
+        pass
