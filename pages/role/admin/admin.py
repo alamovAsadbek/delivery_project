@@ -14,6 +14,10 @@ class Admin:
         self.__user_menu.show_all_users()
         return True
 
+    @log_decorator
+    def create_user(self):
+        pass
+
     # / for user menu
     @log_decorator
     def create_restaurant(self):
