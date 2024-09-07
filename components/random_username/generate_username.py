@@ -27,7 +27,7 @@ def get_username(name: str, table_name, key=None) -> str:
         query = '''
          SELECT * FROM {} WHERE USERNAME=%s;
          '''.format(table_name)
-        params = (table_name, username,)
+        params = (username,)
         result = execute_query(query, params, fetch='one')
         if result is not None:
             continue
