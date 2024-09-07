@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS users
 (
     255
 ) NOT NULL,
-    phone_number BIGINT NOT NULL,
+    phone_number BIGINT NOT NULL UNIQUE,
     ROLE VARCHAR
 (
     255
