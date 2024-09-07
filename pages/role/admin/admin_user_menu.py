@@ -1,11 +1,9 @@
 from components.pagination.pagination import Pagination
+from components.random_username.generate_username import get_username
 from main_files.decorator.decorator_func import log_decorator
 
 
 class AdminUserMenu:
-    def __init__(self):
-        pass
-
     @log_decorator
     def show_all_users(self):
         pagination = Pagination(table_name='users',
@@ -29,10 +27,14 @@ class AdminUserMenu:
             elif user_choice == 2:
                 role = 'courier'
             elif user_choice == 3:
-                role = 'owner_restaurant'
+                role = 'owner'
             else:
                 print("Invalid choice")
                 continue
             break
         print("Creating an account...")
-        username = 'user'
+        if role != 'user':
+            username = get_username(table_name='users', name=first_name, key=role)
+        else:
+            username = get_username(table_name='couriers', name=first_name)
+        print(username)
