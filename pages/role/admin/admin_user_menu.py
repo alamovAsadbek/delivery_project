@@ -92,11 +92,12 @@ class AdminUserMenu:
         if user_id == 0:
             print("Exit")
             return True
+        print("Get data...")
         result_get = self.get_data(table_name='users', table_id=user_id)
         if result_get is None:
             print("Invalid user ID")
             return False
-        print("Get data...")
+
         print(f"\nID: {result_get['id']}\nFirst name: {result_get['first_name']}\n"
               f"Last name: {result_get['last_name']}\nUsername: {result_get['username']}\n"
               f"Phone number: {result_get['phone_number']}\nRole: {result_get['role']}\n")
