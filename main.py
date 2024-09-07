@@ -83,7 +83,7 @@ def admin_restaurants_menu():
     try:
         user_input = int(input('Choose menu: ').strip())
         if user_input == 1:
-            pass
+            admin.create_restaurant()
         elif user_input == 2:
             pass
         elif user_input == 3:
