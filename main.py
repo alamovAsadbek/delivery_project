@@ -42,7 +42,7 @@ def admin_menu():
         if user_input == 1:
             return admin_restaurants_menu()
         elif user_input == 2:
-            pass
+            return admin_users_menu()
         elif user_input == 3:
             print('Exit')
             auth_menu()
