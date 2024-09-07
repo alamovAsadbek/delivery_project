@@ -59,4 +59,15 @@ class Tables:
 
     @log_decorator
     def create_products_table(self):
-        pass
+        query = '''
+        CREATE TABLE IF NOT EXISTS products (
+        ID BIGSERIAL PRIMARY KEY,
+        NAME VARCHAR(255) NOT NULL,
+        PRICE BIGINT NOT NULL,
+        RESTAURANT_ID VARCHAR(255) NOT NULL REFERENCES restaurants(ID) ON DELETE CASCADE,
+        STATUS BOOLEAN NOT NULL DEFAULT TRUE,
+        CREATED_AT TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP
+        )
+        '''
+        execute_query(query)
+        return True
