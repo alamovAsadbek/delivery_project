@@ -13,7 +13,7 @@ def auth_menu():
     try:
         user_input = int(input('Choose menu: ').strip())
         if user_input == 1:
-            pass
+            auth.register()
         elif user_input == 2:
             result_login = auth.login()
             if not result_login['is_login']:
