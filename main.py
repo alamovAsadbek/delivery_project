@@ -31,6 +31,7 @@ def auth_menu():
         auth_menu()
 
 
+# admin menu
 @log_decorator
 def admin_menu():
     text = '''
@@ -113,6 +114,7 @@ def admin_users_menu():
         admin_users_menu()
 
 
+# / admin menu
 if __name__ == '__main__':
     print('Waiting...')
     auth = Auth()
