@@ -24,6 +24,10 @@ class Admin:
         self.__user_menu.update_user()
         return True
 
+    @log_decorator
+    def delete_user(self):
+        pass
+
     # / for user menu
     @log_decorator
     def create_restaurant(self):
