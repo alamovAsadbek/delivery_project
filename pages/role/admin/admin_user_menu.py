@@ -3,6 +3,9 @@ from main_files.decorator.decorator_func import log_decorator
 
 
 class AdminUserMenu:
+    def __init__(self):
+        pass
+
     @log_decorator
     def get_data(self):
         query = '''
@@ -17,4 +20,3 @@ class AdminUserMenu:
         if all_users is None:
             print("Users not found")
             return False
-
