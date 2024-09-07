@@ -87,4 +87,13 @@ class Tables:
 
     @log_decorator
     def create_basket_items_table(self):
-        pass
+        query = '''
+        CREATE TABLE IF NOT EXISTS basket_items (
+        ID BIGSERIAL PRIMARY KEY,
+        BASKET_ID BIGINT NOT NULL REFERENCES baskets(ID) ON DELETE CASCADE,
+        PRODUCT_ID BIGINT NOT NULL REFERENCES products(ID) ON DELETE CASCADE,
+        QUANTITY BIGINT NOT NULL
+        )
+        '''
+        execute_query(query)
+        return True
