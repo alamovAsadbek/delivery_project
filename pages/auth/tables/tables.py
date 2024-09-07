@@ -23,11 +23,18 @@ class Tables:
 
     @log_decorator
     def create_restaurants_table(self):
-        query='''
+        query = '''
         CREATE TABLE IF NOT EXISTS restaurants (
         ID BIGSERIAL PRIMARY KEY,
         NAME VARCHAR(255) NOT NULL,
         USERNAME VARCHAR(255) NOT NULL UNIQUE,
-        
+        PASSWORD VARCHAR(255) NOT NULL,
+        ROLE VARCHAR(255) NOT NULL,
+        PHONE_NUMBER BIGINT NOT NULL UNIQUE,
+        COMPANY_FEE BIGINT NOT NULL,
+        OWNER_ID VARCHAR(255) NOT NULL REFERENCES users(ID) ON DELETE CASCADE,
+        CREATED_AT TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP
         )
         '''
+        execute_query(query)
+        return True
