@@ -120,7 +120,7 @@ class Tables:
         PRICE BIGINT NOT NULL,
         NAME VARCHAR(255) NOT NULL,
         QUANTITY BIGINT NOT NULL,
-        BRANCH_ID BIGINT NOT NULL REFERENCES branch(ID) ON DELETE CASCADE,
+        BRANCH_ID BIGINT NOT NULL REFERENCES branch(ID) ON DELETE CASCADE
         )
         '''
         execute_query(query)
