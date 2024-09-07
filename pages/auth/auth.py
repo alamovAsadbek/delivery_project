@@ -35,7 +35,7 @@ class Auth:
             params = (username, password)
             result_get = execute_query(query, params, fetch='one')
             if result_get is not None:
-                return {'is_login': True, 'role': table}
+                return {'is_login': True, 'role': result_get['role']}
         return {'is_login': False, 'role': 'user'}
 
     @log_decorator
