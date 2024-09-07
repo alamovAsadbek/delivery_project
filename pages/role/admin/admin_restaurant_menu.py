@@ -1,3 +1,4 @@
+from components.pagination.pagination import Pagination
 from main_files.database.db_setting import execute_query
 from main_files.decorator.decorator_func import log_decorator
 
@@ -15,4 +16,15 @@ class AdminRestaurantMenu:
 
     @log_decorator
     def create_restaurant(self):
-        pass
+        name = input("Enter restaurant name: ").strip()
+        phone_number = int(input("Enter phone number ( +998 ): ").strip())
+        company_fee = int(input("Enter company fee (0-100): ").strip())
+        query = '''
+        SELECT * FROM users
+        WHERE role='owner'
+        '''
+        result = execute_query(query, fetch='all')
+        pagination = Pagination(table_name='users', data=result,
+                                table_keys=['id, first_name', 'last_name', 'username', 'phone_number'],
+                                display_keys=['ID', 'FIRST NAME', 'LAST NAME', 'USERNAME', 'PHONE NUMBER'])
+        pagination.page_tab()
