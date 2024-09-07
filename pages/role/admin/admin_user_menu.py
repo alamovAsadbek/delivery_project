@@ -63,6 +63,12 @@ class AdminUserMenu:
         if user_id == 0:
             print("Exit")
             return True
+        print("Get data...")
+        result_get = self.get_data(table_name='users', id=user_id)
+        if result_get is None:
+            print("Invalid user ID")
+            return False
+        print(result_get)
 
     @log_decorator
     def get_data(self, table_name: str, table_id: int = None):
