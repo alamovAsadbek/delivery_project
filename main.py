@@ -21,6 +21,15 @@ def auth_menu():
                 auth_menu()
             elif result_login['role'] == 'admin':
                 return admin_menu()
+            elif result_login['role'] == 'users':
+                return user_menu()
+            elif result_login['role'] == 'restaurants':
+                return restaurant_menu()
+            elif result_login['role'] == 'branch':
+                return branch_menu()
+            else:
+                print("Login failed")
+                auth_menu()
         elif user_input == 3:
             print('Good bye!')
             auth.logout()
