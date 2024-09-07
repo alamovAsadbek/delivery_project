@@ -16,7 +16,9 @@ class Admin:
 
     @log_decorator
     def create_user(self):
-        pass
+        print("Waiting...")
+        self.__user_menu.create_user()
+        return True
 
     # / for user menu
     @log_decorator
