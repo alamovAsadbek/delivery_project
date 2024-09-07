@@ -1,11 +1,12 @@
 from components.pagination.pagination import Pagination
 from main_files.database.db_setting import execute_query
 from main_files.decorator.decorator_func import log_decorator
+from pages.role.admin.admin_user_menu import AdminUserMenu
 
 
 class AdminRestaurantMenu:
     def __init__(self):
-        pass
+        self.__user_menu = AdminUserMenu()
 
     @log_decorator
     def show_all_restaurants(self):
