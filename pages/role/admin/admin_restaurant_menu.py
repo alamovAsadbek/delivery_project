@@ -27,9 +27,13 @@ class AdminRestaurantMenu:
         SELECT * FROM users
         WHERE role='owner'
         '''
-        result = execute_query(query, fetch='all')
-        pagination = Pagination(table_name='users', data=result,
-                                table_keys=['id, first_name', 'last_name', 'username', 'phone_number'],
-                                display_keys=['ID', 'FIRST NAME', 'LAST NAME', 'USERNAME', 'PHONE NUMBER'])
-        if not pagination.page_tab():
-            pass
+        while True:
+            result = execute_query(query, fetch='all')
+            pagination = Pagination(table_name='users', data=result,
+                                    table_keys=['id, first_name', 'last_name', 'username', 'phone_number'],
+                                    display_keys=['ID', 'FIRST NAME', 'LAST NAME', 'USERNAME', 'PHONE NUMBER'])
+
+            print('\n1. Add new owner\n2. Enter user id')
+            user_choice = int(input("Enter user id: ").strip())
+            if user_choice == 1:
+                pass
