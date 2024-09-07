@@ -2,12 +2,13 @@ import hashlib
 
 from main_files.database.db_setting import execute_query
 from main_files.decorator.decorator_func import log_decorator
+from pages.auth.tables.tables import Tables
 
 
 class Auth:
     def __init__(self):
         self.__admin = {'username': 'admin', 'password': hashlib.sha256('admin'.encode()).hexdigest()}
-
+        self.__tables = Tables()
 
     @log_decorator
     def login(self):
@@ -19,6 +20,6 @@ class Auth:
 
     @log_decorator
     def logout(self):
-        self.create_users_table()
+        self.__tables.create_users_table()
         query = '''UPDATE users SET IS_LOGIN=FALSE;'''
         execute_query(query)
