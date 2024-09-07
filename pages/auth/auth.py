@@ -8,23 +8,6 @@ class Auth:
     def __init__(self):
         self.__admin = {'username': 'admin', 'password': hashlib.sha256('admin'.encode()).hexdigest()}
 
-    @log_decorator
-    def create_users_table(self):
-        query = '''
-        CREATE TABLE IF NOT EXISTS users (
-        ID BIGSERIAL PRIMARY KEY,
-        FIRST_NAME VARCHAR(255) NOT NULL,
-        LAST_NAME VARCHAR(255) NOT NULL,
-        username VARCHAR(255) NOT NULL,
-        password VARCHAR(255) NOT NULL,
-        phone_number BIGINT NOT NULL,
-        ROLE VARCHAR(255) NOT NULL,
-        IS_LOGIN BOOLEAN NOT NULL DEFAULT FALSE,
-        CREATED_AT TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP        
-        )
-        '''
-        execute_query(query)
-        return True
 
     @log_decorator
     def login(self):
