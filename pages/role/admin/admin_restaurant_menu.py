@@ -4,6 +4,9 @@ from main_files.decorator.decorator_func import log_decorator
 
 
 class AdminRestaurantMenu:
+    def __init__(self):
+        pass
+
     @log_decorator
     def show_all_restaurants(self):
         print("Waiting...")
