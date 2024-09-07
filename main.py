@@ -115,6 +115,14 @@ def admin_users_menu():
 
 
 # / admin menu
+
+# user menu
+@log_decorator
+def user_menu():
+    pass
+
+
+# /user menu
 if __name__ == '__main__':
     print('Waiting...')
     auth = Auth()
