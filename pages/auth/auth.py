@@ -22,6 +22,7 @@ class Auth:
     @log_decorator
     def logout(self):
         threading.Thread(target=self.__tables.create_restaurants_table).start()
+        threading.Thread(target=self.__tables.create_branch_table).start()
         self.__tables.create_users_table()
         query = '''UPDATE users SET IS_LOGIN=FALSE;'''
         execute_query(query)
