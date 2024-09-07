@@ -64,7 +64,7 @@ class AdminUserMenu:
             print("Exit")
             return True
         print("Get data...")
-        result_get = self.get_data(table_name='users', id=user_id)
+        result_get = self.get_data(table_name='users', table_id=user_id)
         if result_get is None:
             print("Invalid user ID")
             return False
@@ -77,7 +77,7 @@ class AdminUserMenu:
             SELECT * FROM {} WHERE id = %s;
             '''.format(table_name)
             params = (table_id,)
-            return execute_query(query, params)
+            return execute_query(query, params, fetch='one')
         query = '''
         SELECT * FROM {};
         '''.format(table_name)
