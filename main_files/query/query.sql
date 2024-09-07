@@ -111,4 +111,7 @@ CREATE TABLE IF NOT EXISTS requests
 INSERT INTO users(FIRST_NAME, LAST_NAME, username, password, phone_number, ROLE)
 VALUES ('', '', '', '', '', '');
 
-select * from users
+-- Admin userlarni parollarini almashtirish uchun query
+UPDATE users
+SET password='%s'
+WHERE id = '%s';
