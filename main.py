@@ -83,7 +83,14 @@ def admin_restaurants_menu():
 
 @log_decorator
 def admin_users_menu():
-    pass
+    text = '''
+1. Create User
+2. Update User
+3. Delete User
+4. Show all Users
+5. Back
+    '''
+    print(text)
 
 
 if __name__ == '__main__':
