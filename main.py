@@ -25,7 +25,7 @@ def auth_menu():
             elif result_login['role'] == 'user':
                 user_menu()
             elif result_login['role'] == 'courier':
-                pass
+                courier_menu()
             elif result_login['role'] == 'restaurant':
                 restaurant_menu()
             elif result_login['role'] == 'branch':
