@@ -27,4 +27,5 @@ class AdminRestaurantMenu:
         pagination = Pagination(table_name='users', data=result,
                                 table_keys=['id, first_name', 'last_name', 'username', 'phone_number'],
                                 display_keys=['ID', 'FIRST NAME', 'LAST NAME', 'USERNAME', 'PHONE NUMBER'])
-        pagination.page_tab()
+        if not pagination.page_tab():
+            pass
