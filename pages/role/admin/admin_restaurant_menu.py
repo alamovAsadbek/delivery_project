@@ -39,7 +39,7 @@ class AdminRestaurantMenu:
             pagination = Pagination(table_name='users', data=result,
                                     table_keys=['id, first_name', 'last_name', 'username', 'phone_number'],
                                     display_keys=['ID', 'FIRST NAME', 'LAST NAME', 'USERNAME', 'PHONE NUMBER'])
-
+            pagination.page_tab()
             print('\n1. Add new owner\n2. Enter user id')
             user_choice = int(input("Enter user id: ").strip())
             if user_choice == 1:
