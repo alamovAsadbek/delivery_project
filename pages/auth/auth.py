@@ -8,6 +8,10 @@ class Auth:
         self.__admin = {'username': 'admin', 'password': hashlib.sha256('admin'.encode()).hexdigest()}
 
     @log_decorator
+    def create_users_table(self):
+        pass
+
+    @log_decorator
     def login(self):
         username: str = input('Username: ').strip()
         password: str = hashlib.sha256(input('Password: ').strip().encode('utf-8')).hexdigest()
