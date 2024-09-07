@@ -36,9 +36,17 @@ class Auth:
         print('Your account is being created...')
         username = get_username(name=first_name, table_name='users')
         password = generate_password()
+        hash_password = hashlib.sha256(password.__str__().encode('utf-8')).hexdigest()
         print(f'\nYour username is {self.print_bold(username, 32)} '
               f'and password is {self.print_bold(password, 32)}\n')
-        print(username)
+        query = '''
+        INSERT INTO users(FIRST_NAME, LAST_NAME, username, password, phone_number, ROLE)
+        VALUES (%s, %s, %s, %s, %s, %s);
+        '''
+        params = (first_name, last_name, username, hash_password, phone_number, 'user')
+        threading.Thread(target=execute_query, args=(query, params)).start()
+        print("Registered successfully")
+        return True
 
     @log_decorator
     def create_tables(self):
