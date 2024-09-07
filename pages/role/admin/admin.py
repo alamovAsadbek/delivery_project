@@ -21,7 +21,8 @@ class Admin:
 
     @log_decorator
     def update_user(self):
-        pass
+        self.__user_menu.update_user()
+        return True
 
     # / for user menu
     @log_decorator
