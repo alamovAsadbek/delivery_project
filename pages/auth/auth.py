@@ -1,6 +1,8 @@
 import hashlib
 import threading
 
+from psycopg2 import sql
+
 from components.random_password.generate_password import generate_password
 from components.random_username.generate_username import get_username
 from main_files.database.db_setting import execute_query
@@ -25,14 +27,13 @@ class Auth:
         tables = ['users', 'restaurants', 'branch']
         username: str = input('Username: ').strip()
         password: str = hashlib.sha256(input('Password: ').strip().encode('utf-8')).hexdigest()
+        print("Checked...")
         if username == self.__admin['username'] and password == self.__admin['password']:
             return {'is_login': True, 'role': 'admin'}
         for table in tables:
-            query = '''
-            SELECT * FROM {} WHERE username = %s AND password = %s
-            '''.format(table)
+            query = sql.SQL("SELECT * FROM {} WHERE username=%s and password=%s").format(sql.Identifier(table))
             params = (username, password)
-            result_get = execute_query(query, params)
+            result_get = execute_query(query, params, fetch='one')
             if result_get is not None:
                 return {'is_login': True, 'role': table}
         return {'is_login': False, 'role': 'user'}
