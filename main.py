@@ -168,6 +168,7 @@ def owner_restaurant_menu():
 # courier menu
 @log_decorator
 def courier_menu():
+    print("Courier menu")
     pass
 
 
