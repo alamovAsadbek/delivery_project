@@ -96,12 +96,13 @@ class AdminUserMenu:
         if result_get is None:
             print("Invalid user ID")
             return False
+        print("Get data...")
         print(f"\nID: {result_get['id']}\nFirst name: {result_get['first_name']}\n"
               f"Last name: {result_get['last_name']}\nUsername: {result_get['username']}\n"
               f"Phone number: {result_get['phone_number']}\nRole: {result_get['role']}\n")
         while True:
             print('Do you want to delete the user?')
-            confirm_delete = input('Y/N').strip().lower()
+            confirm_delete = input('Y/N: ').strip().lower()
             if confirm_delete == 'y':
                 query = '''
                 DELETE FROM users WHERE id=%s;
