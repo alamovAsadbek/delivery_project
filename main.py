@@ -131,6 +131,15 @@ def restaurant_menu():
 
 
 # /restaurant menu
+
+# branch menu
+@log_decorator
+def branch_menu():
+    pass
+
+
+# /branch menu
+
 if __name__ == '__main__':
     print('Waiting...')
     auth = Auth()
