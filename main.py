@@ -28,7 +28,7 @@ def auth_menu():
             elif result_login['role'] == 'branch':
                 branch_menu()
             elif result_login['role'] == 'owner_restaurant':
-                pass
+                owner_restaurant_menu()
             else:
                 print("Login failed")
                 auth_menu()
@@ -154,7 +154,7 @@ def branch_menu():
 
 # owner restaurant
 @log_decorator
-def owner_restaurant():
+def owner_restaurant_menu():
     pass
 
 
