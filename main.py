@@ -44,6 +44,11 @@ def admin_menu():
         admin_menu()
 
 
+@log_decorator
+def admin_restaurants_menu():
+    pass
+
+
 if __name__ == '__main__':
     print('Waiting...')
     auth = Auth()
