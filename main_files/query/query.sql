@@ -30,3 +30,7 @@ CREATE TABLE IF NOT EXISTS users
     IS_LOGIN BOOLEAN NOT NULL DEFAULT FALSE,
     CREATED_AT TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
     );
+
+-- Dastur birinchi marta ishlagan payt hamma userlarni is_loginni false qilish uchun yani logoout
+UPDATE users
+SET IS_LOGIN= FALSE;
