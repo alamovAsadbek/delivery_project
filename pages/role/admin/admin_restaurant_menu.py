@@ -11,7 +11,7 @@ class AdminRestaurantMenu:
         self.__user_menu = AdminUserMenu()
 
     @log_decorator
-    def get_data(self, data_id, table_name):
+    def get_data(self, data_id, table_name, role=None):
         query = '''
         SELECT * FROM {} WHERE id=%s
         '''.format(table_name)
@@ -54,7 +54,7 @@ class AdminRestaurantMenu:
                 break
             print('Wrong input')
         user_id: int = int(input("Enter user id: ").strip())
-        get_data = self.get_data(user_id, table_name='users')
+        get_data = self.get_data(user_id.__str__(), table_name='users', role='owner')
         if get_data is None:
             print('User does not exist')
             return False
