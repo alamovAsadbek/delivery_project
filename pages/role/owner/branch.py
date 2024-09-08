@@ -56,7 +56,6 @@ class Branch:
         print(f"\nRestaurant: {get_restaurant['name']}\n")
         branch_name = input("Enter branch name to create: ").strip()
         location = input("Enter location to create: ").strip()
-        phone_number = input("Enter phone number (+998): ").strip()
         print("Creating branch...")
         username = get_username(table_name='branch', name=branch_name, key='filial')
         password = generate_password()
