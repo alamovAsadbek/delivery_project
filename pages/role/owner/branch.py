@@ -58,9 +58,12 @@ class Branch:
             get_restaurant = self.select_restaurant()
         if get_restaurant is None:
             return False
-        print(f"\nRestaurant: {get_restaurant['name']}\n")
-        branch_name = input("Enter branch name to create: ").strip()
-        location = input("Enter location to create: ").strip()
+        if update_data is not None:
+            print(f"Branch: {get_restaurant['name']}\n")
+        else:
+            print(f"\nRestaurant: {get_restaurant['name']}\n")
+        branch_name = input("Enter branch name: ").strip()
+        location = input("Enter location: ").strip()
         print("Creating branch...")
         if update_data is not None:
             username = update_data['username']
