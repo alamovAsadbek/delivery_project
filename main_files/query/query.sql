@@ -135,4 +135,5 @@ SET NAME         = '%s',
     COMPANY_FEE  = '%s'
 WHERE ID = '%s';
 
-select * from restaurants;
+select * from branch
+inner join restaurants r on branch.RESTAURANT_ID = r.ID
