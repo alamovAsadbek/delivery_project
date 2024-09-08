@@ -85,3 +85,7 @@ class AdminRestaurantMenu:
         threading.Thread(target=execute_query, args=(query, params)).start()
         print("Restaurant created successfully")
         return True
+
+    @log_decorator
+    def update_restaurant(self):
+        pass
