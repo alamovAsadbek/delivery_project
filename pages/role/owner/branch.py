@@ -14,7 +14,7 @@ class Branch:
         restaurant_id: int = int(input("Enter restaurant ID or enter 0 to exit: ").strip())
         if restaurant_id == 0:
             print("Exit")
-            return False
+            return None
         print("Waiting...")
         query = '''
         SELECT * FROM RESTAURANTS WHERE OWNER_ID=%s and ID=%s
@@ -34,9 +34,9 @@ class Branch:
             return False
         print(f"\nRestaurant: {get_restaurant['name']}\n")
         query = '''
-        SELECT * FROM branch WHERE restaurant_id=%s
+        select * from branch where RESTAURANT_ID=%s
         '''
-        params = (get_restaurant['id'])
+        params = (get_restaurant['id'], )
         result = execute_query(query, params, fetch='one')
         print(result)
 
