@@ -1,3 +1,4 @@
+from components.pagination.pagination import Pagination
 from main_files.database.db_setting import get_active_user, execute_query
 from main_files.decorator.decorator_func import log_decorator
 
@@ -18,3 +19,8 @@ class OwnerRestaurantMenu:
         if result is None:
             print('No owner restaurants found.')
             return False
+        pagination = Pagination(table_name='restaurants', data=result,
+                                table_keys=['id', 'name', 'username', 'phone_number', 'company_fee', 'created_at'],
+                                display_keys=['ID', 'Name', 'Username', 'Phone number', 'Company fee (%) ', 'Created'])
+        pagination.page_tab()
+        return True

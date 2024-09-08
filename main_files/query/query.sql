@@ -144,4 +144,5 @@ WHERE r.OWNER_ID = '%s';
 -- Restaran egasini barcha restaralarini ko'rish uchun query
 SELECT *
 FROM restaurants
-WHERE OWNER_ID = '%s'
+WHERE OWNER_ID = '%s';
+select * from restaurants;
