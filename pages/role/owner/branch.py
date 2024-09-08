@@ -15,7 +15,7 @@ class Branch:
         restaurant_id: int = int(input("Enter restaurant ID: ").strip())
         print("Waiting...")
         query = '''
-        SELECT * FROM RESTAURANT WHERE OWNER_ID=%s and ID=%s
+        SELECT * FROM RESTAURANTS WHERE OWNER_ID=%s and ID=%s
         '''
         params = (self.active_user['id'], restaurant_id,)
         result = execute_query(query, params, fetch='one')
