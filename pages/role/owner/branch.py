@@ -40,6 +40,12 @@ class Branch:
         if get_restaurant is None:
             return False
         print(f"\nRestaurant: {get_restaurant['name']}\n")
+        query = '''
+        SELECT * FROM branch WHERE restaurant_id=%s
+        '''
+        params = (get_restaurant['id'])
+        result = execute_query(query, params, fetch='all')
+        print(result)
 
     @log_decorator
     def create_branch(self):
