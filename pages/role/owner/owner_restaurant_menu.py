@@ -1,4 +1,4 @@
-from main_files.database.db_setting import get_active_user
+from main_files.database.db_setting import get_active_user, execute_query
 from main_files.decorator.decorator_func import log_decorator
 
 
@@ -13,4 +13,8 @@ class OwnerRestaurantMenu:
         FROM restaurants
         WHERE OWNER_ID = %s
         '''
-        params = ()
+        params = (self.active_user['id'],)
+        result = execute_query(query, params, fetch='all')
+        if result is None:
+            print('No owner restaurants found.')
+            return False
