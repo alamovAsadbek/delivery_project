@@ -125,3 +125,5 @@ class AdminRestaurantMenu:
         if get_data is None:
             print("Restaurant does not exist")
             return False
+        self.create_restaurant(update_data=get_data)
+        return True
