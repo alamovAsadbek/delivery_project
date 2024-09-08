@@ -134,3 +134,5 @@ SET NAME         = '%s',
     PHONE_NUMBER = '%s',
     COMPANY_FEE  = '%s'
 WHERE ID = '%s';
+
+select * from restaurants;

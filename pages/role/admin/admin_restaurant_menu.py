@@ -50,7 +50,7 @@ class AdminRestaurantMenu:
 
     @log_decorator
     def create_restaurant(self, update_data=None):
-        name = input("Enter restaurant name: ").strip()
+        name = input("Enter restaurant name: ").strip().capitalize()
         phone_number = int(input("Enter phone number ( +998 ): ").strip())
         company_fee = int(input("Enter company fee (0-100): ").strip())
         print("Waiting...")
