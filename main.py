@@ -216,6 +216,8 @@ def owner_restaurant_menu():
 
 @log_decorator
 def owner_branch_menu():
+    print("Waiting...")
+    owner = OwnerRestaurant()
     text = '''
 1. Create branch
 2. Update branch
@@ -233,7 +235,7 @@ def owner_branch_menu():
         elif user_input == 3:
             pass
         elif user_input == 4:
-            pass
+            owner.show_all_branches()
         elif user_input == 5:
             return owner_restaurant_menu()
         else:
