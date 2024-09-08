@@ -83,9 +83,11 @@ class AdminRestaurantMenu:
         print(f"Owner ID: {get_data['id']}\nOwner full name: {get_data['last_name']} {get_data['first_name']}\n"
               f"Owner username: {get_data['username']}")
         print("Creating restaurant...")
-        username = update_data['username']
+        username = ''
         if update_data is None:
             username = get_username(table_name='restaurants', name=name, key='restaurant')
+        else:
+            username = update_data['username']
         password = generate_password()
         print(f"{name.capitalize()} restaurant username: {print_bold(username, 34)} "
               f"and password: {print_bold(password, 34)}")
