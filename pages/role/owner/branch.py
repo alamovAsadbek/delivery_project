@@ -104,3 +104,5 @@ class Branch:
         if result is None:
             print("Branch not found")
             return False
+        self.create_branch(update_data=result)
+        return True
