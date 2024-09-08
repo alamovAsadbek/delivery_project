@@ -11,7 +11,8 @@ class Branch:
 
     @log_decorator
     def select_restaurant(self):
-        pass
+        self.__restaurant_menu.show_all_owner_restaurants()
+        restaurant_id: int = int(input("Enter restaurant ID: ").strip())
 
     @log_decorator
     def show_all_branches(self):
