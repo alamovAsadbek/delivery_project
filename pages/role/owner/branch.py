@@ -107,7 +107,9 @@ class Branch:
         if result is None:
             print("Branch not found")
             return False
-        print(f"Branch name: {result['name']}\nLocation: {result['location']}\nUsername: {result['username']}\n"
-              f"Phone Number: {result['phone_number']}\n")
+        print(
+            f"\nBranch name: {print_bold(result['name'], 34)}\n"
+            f"Location: {print_bold(result['location'], 34)}\nUsername: {print_bold(result['username'], 34)}\n"
+            f"Phone Number: {print_bold(result['phone_number'], 34)}\n")
         self.create_branch(update_data=result)
         return True
