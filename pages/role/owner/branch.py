@@ -1,11 +1,11 @@
 from components.pagination.pagination import Pagination
-from main_files.database.db_setting import execute_query
+from main_files.database.db_setting import execute_query, get_active_user
 from main_files.decorator.decorator_func import log_decorator
 
 
 class Branch:
     def __init__(self):
-        pass
+        self.active_user = get_active_user()
 
     @log_decorator
     def show_all_branches(self):
