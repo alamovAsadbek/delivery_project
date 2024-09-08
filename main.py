@@ -210,7 +210,19 @@ def owner_restaurant_menu():
 
 @log_decorator
 def owner_branch_menu():
-    pass
+    text = '''
+1. Create branch
+2. Update branch
+3. Delete branch
+4. Show all branches
+5. Back
+    '''
+    print(text)
+    try:
+        pass
+    except Exception as e:
+        print(f'Error: {e}')
+        owner_branch_menu()
 
 
 # / owner restaurant
