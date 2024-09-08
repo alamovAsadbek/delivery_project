@@ -140,4 +140,30 @@ class AdminRestaurantMenu:
     def delete_restaurant(self):
         if not self.show_all_restaurants():
             return False
-
+        restaurant_id = int(input("Enter the restaurant ID or enter 0 to exit: ").strip())
+        if restaurant_id == 0:
+            print('Exit')
+            return False
+        get_data = self.get_data(data_id=restaurant_id, table_name='restaurants')
+        if get_data is None:
+            print("Restaurant does not exist")
+            return False
+        print(f"\nRestaurant ID: {restaurant_id}\nRestaurant name: {get_data['name']}\n"
+              f"Restaurant username: {print_bold(get_data['username'], 32)}\n"
+              f"Restaurant phone number: {get_data['phone_number']}\n"
+              f"Company fee ( % ): {get_data['company_fee']}\nCreated at: {get_data['created_at']}\n")
+        choice = input('Do you want to uninstall Restaurant? (y/n): ').lower().strip()
+        if choice == 'y':
+            query = '''
+            DELETE FROM restaurants WHERE ID = %s;
+            '''
+            params = (restaurant_id,)
+            threading.Thread(target=execute_query, args=(query, params)).start()
+            print("Restaurant deleted successfully")
+            return True
+        elif choice == 'n':
+            print('Exit')
+            return False
+        else:
+            print('Invalid input')
+            return False
