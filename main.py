@@ -187,8 +187,18 @@ def branch_menu():
 # owner restaurant
 @log_decorator
 def owner_restaurant_menu():
-    print("Owner menu")
-    pass
+    text = '''
+1. My restaurants
+2. Product
+3. Branch
+4. Logout
+    '''
+    print(text)
+    try:
+        pass
+    except Exception as e:
+        print(f'Error: {e}')
+        owner_restaurant_menu()
 
 
 # / owner restaurant
