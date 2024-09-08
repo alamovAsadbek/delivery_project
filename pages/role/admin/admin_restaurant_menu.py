@@ -32,17 +32,17 @@ class AdminRestaurantMenu:
         print("Waiting...")
         query = '''
         SELECT r.id, r.name, r.username, r.phone_number, r.company_fee, u.first_name as owner_first_name, 
-        u.last_name as owner_last_name, u.username as owner_username, u.phone_number as owner_number,
+        u.last_name as owner_last_name, u.username as owner_username, u.phone_number as owner_number
           FROM restaurants r
         INNER JOIN users u on r.OWNER_ID = u.ID
         '''
         result = execute_query(query, fetch='all')
-        print(result)
         pagination = Pagination(table_name='restaurants', data=result,
-                                table_keys=['id', 'name', 'r.username', 'phone_number', 'company_fee',
+                                table_keys=['id', 'name', 'username', 'phone_number', 'company_fee',
                                             'owner_first_name', 'owner_last_name', 'owner_username', 'owner_number'],
-                                display_keys=['id', 'name', 'username', 'phone_number', 'company_fee', 'first_name',
-                                              'last_name', 'username', 'phone_number'])
+                                display_keys=['RESTAURANT ID', 'RESTAURANT NAME', 'RESTAURANT USERNAME',
+                                              'RESTAURANT PHONE', 'COMPANY FEE', 'OWNER FIRST NAME', 'OWNER LAST NAME',
+                                              'OWNER USERNAME', 'OWNER NUMBER'])
         if not pagination.page_tab():
             return False
         return True
