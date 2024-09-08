@@ -135,5 +135,7 @@ SET NAME         = '%s',
     COMPANY_FEE  = '%s'
 WHERE ID = '%s';
 
+-- Qaysid
 select * from branch
 inner join restaurants r on branch.RESTAURANT_ID = r.ID
+WHERE r.OWNER_ID='%s';
