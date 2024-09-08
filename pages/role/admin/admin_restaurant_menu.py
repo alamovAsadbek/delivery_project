@@ -19,7 +19,7 @@ class AdminRestaurantMenu:
             return execute_query(query, data_id, fetch='one')
         query = '''
         SELECT * FROM {} WHERE id=%s and role=%s
-        '''
+        '''.format(table_name)
         return execute_query(query, data_id, role)
 
     @log_decorator
