@@ -201,7 +201,7 @@ def owner_restaurant_menu():
         if user_input == 1:
             owner.show_my_restaurants()
         elif user_input == 2:
-            pass
+            owner_branch_menu()
         elif user_input == 3:
             print("Logout")
             threading.Thread(target=auth.logout).start()
