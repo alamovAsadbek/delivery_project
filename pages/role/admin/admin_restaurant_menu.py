@@ -63,5 +63,5 @@ class AdminRestaurantMenu:
         if get_data is None:
             print('User does not exist')
             return False
-        print(f"Owner ID: {get_data['id']}\nOwner full name: {get_data['last_name'], get_data['first_name']}\n"
+        print(f"Owner ID: {get_data['id']}\nOwner full name: {get_data['last_name']} {get_data['first_name']}\n"
               f"Owner username: {get_data['username']}")
