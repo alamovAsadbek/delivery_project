@@ -102,4 +102,8 @@ class AdminRestaurantMenu:
         if not self.show_all_restaurants():
             return False
         restaurant_id = int(input("Enter restaurant id: ").strip())
+        get_data = self.get_data(restaurant_id, table_name='restaurants')
+        if get_data is None:
+            print("Restaurant does not exist")
+            return False
 
