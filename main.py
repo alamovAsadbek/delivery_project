@@ -229,7 +229,7 @@ def owner_branch_menu():
     try:
         user_input = int(input('Choose menu: '))
         if user_input == 1:
-            pass
+            owner.create_branch()
         elif user_input == 2:
             pass
         elif user_input == 3:
