@@ -1,3 +1,5 @@
+import threading
+
 from main_files.decorator.decorator_func import log_decorator
 from pages.auth.auth import Auth
 from pages.role.admin.admin import Admin
@@ -145,7 +147,20 @@ def user_menu():
     '''
     print(text)
     try:
-        pass
+        user_input = int(input("Choose menu: "))
+        if user_input == 1:
+            pass
+        elif user_input == 2:
+            pass
+        elif user_input == 3:
+            pass
+        elif user_input == 4:
+            threading.Thread(target=auth.logout).start()
+            print("Logged out")
+            auth_menu()
+        else:
+            print("Wrong input")
+            user_menu()
     except Exception as e:
         print(f'Error: {e}')
         user_menu()
