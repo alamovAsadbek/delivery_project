@@ -10,6 +10,10 @@ class Branch:
         self.__restaurant_menu = OwnerRestaurantMenu()
 
     @log_decorator
+    def select_restaurant(self):
+        pass
+
+    @log_decorator
     def show_all_branches(self):
         print("Waiting...")
         query = '''
