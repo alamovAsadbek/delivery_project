@@ -150,6 +150,6 @@ WHERE OWNER_ID = '%s';
 
 -- userni restarlarini tanlash uchun query
 SELECT *
-FROM RESTAURANT
+FROM restaurants
 WHERE OWNER_ID = '% s'
   and ID = '% s'
