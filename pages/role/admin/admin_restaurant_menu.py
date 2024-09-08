@@ -65,3 +65,4 @@ class AdminRestaurantMenu:
             return False
         print(f"Owner ID: {get_data['id']}\nOwner full name: {get_data['last_name']} {get_data['first_name']}\n"
               f"Owner username: {get_data['username']}")
+        print("Restaurant created successfully")
