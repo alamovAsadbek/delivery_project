@@ -35,7 +35,14 @@ class AdminRestaurantMenu:
         INNER JOIN users u on restaurants.OWNER_ID = u.ID
         '''
         result = execute_query(query, fetch='all')
-        print(result)
+        pagination = Pagination(table_name='restaurants', data=result,
+                                table_keys=['id', 'name', 'username', 'phone_number', 'company_fee', 'first_name',
+                                            'last_name', 'username', 'phone_number'],
+                                display_keys=['id', 'name', 'username', 'phone_number', 'company_fee', 'first_name',
+                                              'last_name', 'username', 'phone_number'])
+        if not pagination.page_tab():
+            return False
+        return True
 
     @log_decorator
     def create_restaurant(self):
