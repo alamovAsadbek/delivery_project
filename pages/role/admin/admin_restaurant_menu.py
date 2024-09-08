@@ -138,4 +138,6 @@ class AdminRestaurantMenu:
 
     @log_decorator
     def delete_restaurant(self):
-        pass
+        if not self.show_all_restaurants():
+            return False
+
