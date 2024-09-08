@@ -147,3 +147,9 @@ WHERE r.OWNER_ID = '%s';
 SELECT *
 FROM restaurants
 WHERE OWNER_ID = '%s';
+
+-- userni restarlarini tanlash uchun query
+SELECT *
+FROM RESTAURANT
+WHERE OWNER_ID = '% s'
+  and ID = '% s'
