@@ -16,4 +16,4 @@ class Branch:
                                 display_keys=['ID', 'Name', 'Username', 'Phone Number', 'Location'])
         if not pagination.page_tab():
             return False
-
+        return True
