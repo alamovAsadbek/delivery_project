@@ -135,3 +135,7 @@ class AdminRestaurantMenu:
               f"Company fee ( % ): {get_data['company_fee']}\nCreated at: {get_data['created_at']}\n")
         self.create_restaurant(update_data=get_data)
         return True
+
+    @log_decorator
+    def delete_restaurant(self):
+        pass
