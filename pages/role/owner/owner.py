@@ -8,12 +8,20 @@ class OwnerRestaurant:
         self.__branch = Branch()
         self.__restaurant = OwnerRestaurantMenu()
 
+    # branch menu
+
     @log_decorator
     def show_all_branches(self):
         self.__branch.show_all_branches()
         return True
 
+    # /branch menu
+
+    # restaurants menu
+
     @log_decorator
     def show_my_restaurants(self):
         self.__restaurant.show_all_owner_restaurants()
         return True
+
+    # / restaurants menu
