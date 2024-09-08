@@ -231,7 +231,7 @@ def owner_branch_menu():
         if user_input == 1:
             owner.create_branch()
         elif user_input == 2:
-            pass
+            owner.update_branch()
         elif user_input == 3:
             pass
         elif user_input == 4:
