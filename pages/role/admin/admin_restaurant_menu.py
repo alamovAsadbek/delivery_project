@@ -16,11 +16,11 @@ class AdminRestaurantMenu:
             query = '''
             SELECT * FROM {} WHERE id=%s
             '''.format(table_name)
-            return execute_query(query, data_id, fetch='one')
+            return execute_query(query, (data_id,), fetch='one')
         query = '''
         SELECT * FROM {} WHERE id=%s and role=%s
         '''.format(table_name)
-        return execute_query(query, data_id, role, fetch='one')
+        return execute_query(query, (data_id, role,), fetch='one')
 
     @log_decorator
     def show_all_restaurants(self):
