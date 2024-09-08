@@ -1,3 +1,5 @@
+import time
+
 from components.pagination.pagination import Pagination
 from main_files.database.db_setting import execute_query
 from main_files.decorator.decorator_func import log_decorator
@@ -45,6 +47,8 @@ class AdminRestaurantMenu:
             user_choice = int(input("Enter user id: ").strip())
             if user_choice == 1:
                 self.__user_menu.create_user()
+                print("User created successfully")
+                time.sleep(5)
                 continue
             elif user_choice == 2:
                 break
