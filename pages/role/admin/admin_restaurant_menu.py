@@ -84,10 +84,9 @@ class AdminRestaurantMenu:
               f"Owner username: {get_data['username']}")
         print("Creating restaurant...")
         username = update_data['username']
-        password = update_data['password']
         if update_data is None:
             username = get_username(table_name='restaurants', name=name, key='restaurant')
-            password = generate_password()
+        password = generate_password()
         print(f"{name.capitalize()} restaurant username: {print_bold(username, 34)} "
               f"and password: {print_bold(password, 34)}")
         has_password = hashlib.sha256(password.__str__().encode('utf-8')).hexdigest()
@@ -96,8 +95,25 @@ class AdminRestaurantMenu:
         VALUES (%s, %s, %s, %s, %s, %s, %s)
         '''
         params = (name, username, has_password, 'restaurant', phone_number, company_fee, get_data['id'])
+        if update_data is not None:
+            query = '''
+            UPDATE restaurants
+            SET 
+                NAME = %s,
+                USERNAME = %s,
+                PASSWORD = %s,
+                ROLE = %s,
+                PHONE_NUMBER = %s,
+                COMPANY_FEE = %s
+            WHERE 
+                ID = %s;
+            '''
+            params = (name, username, has_password, 'restaurant', phone_number, company_fee, update_data['id'])
         threading.Thread(target=execute_query, args=(query, params)).start()
-        print("Restaurant created successfully")
+        if update_data is None:
+            print("Restaurant created successfully")
+        else:
+            print("Restaurant updated successfully")
         return True
 
     @log_decorator
