@@ -18,7 +18,11 @@ class Branch:
         SELECT * FROM RESTAURANT WHERE OWNER_ID=%s and ID=%s
         '''
         params = (self.active_user['id'], restaurant_id,)
-        return execute_query(query, params, fetch='one')
+        result = execute_query(query, params, fetch='one')
+        if result is None:
+            print("Restaurant not found")
+            return None
+        return result
 
     @log_decorator
     def show_all_branches(self):
@@ -32,7 +36,10 @@ class Branch:
                                 display_keys=['ID', 'Name', 'Username', 'Phone Number', 'Location'])
         if not pagination.page_tab():
             return False
-        return True
+        get_restaurant = self.select_restaurant()
+        if get_restaurant is None:
+            return False
+        print(f"\nRestaurant: {get_restaurant['name']}\n")
 
     @log_decorator
     def create_branch(self):
