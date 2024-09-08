@@ -22,7 +22,8 @@ class OwnerRestaurant:
 
     @log_decorator
     def update_branch(self):
-        pass
+        self.__branch.update_branch()
+        return True
 
     # /branch menu
 
