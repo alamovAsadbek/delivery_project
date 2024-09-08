@@ -49,7 +49,7 @@ class AdminRestaurantMenu:
         return True
 
     @log_decorator
-    def create_restaurant(self):
+    def create_restaurant(self, update_data=None):
         name = input("Enter restaurant name: ").strip()
         phone_number = int(input("Enter phone number ( +998 ): ").strip())
         company_fee = int(input("Enter company fee (0-100): ").strip())
@@ -83,8 +83,11 @@ class AdminRestaurantMenu:
         print(f"Owner ID: {get_data['id']}\nOwner full name: {get_data['last_name']} {get_data['first_name']}\n"
               f"Owner username: {get_data['username']}")
         print("Creating restaurant...")
-        username = get_username(table_name='restaurants', name=name, key='restaurant')
-        password = generate_password()
+        username = update_data['username']
+        password = update_data['password']
+        if update_data is None:
+            username = get_username(table_name='restaurants', name=name, key='restaurant')
+            password = generate_password()
         print(f"{name.capitalize()} restaurant username: {print_bold(username, 34)} "
               f"and password: {print_bold(password, 34)}")
         has_password = hashlib.sha256(password.__str__().encode('utf-8')).hexdigest()
@@ -106,4 +109,3 @@ class AdminRestaurantMenu:
         if get_data is None:
             print("Restaurant does not exist")
             return False
-
