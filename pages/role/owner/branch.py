@@ -1,11 +1,13 @@
 from components.pagination.pagination import Pagination
 from main_files.database.db_setting import execute_query, get_active_user
 from main_files.decorator.decorator_func import log_decorator
+from pages.role.owner.owner_restaurant_menu import OwnerRestaurantMenu
 
 
 class Branch:
     def __init__(self):
         self.active_user = get_active_user()
+        self.__restaurant_menu = OwnerRestaurantMenu()
 
     @log_decorator
     def show_all_branches(self):
