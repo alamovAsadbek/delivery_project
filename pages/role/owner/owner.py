@@ -10,3 +10,7 @@ class OwnerRestaurant:
     def show_all_branches(self):
         self.__branch.show_all_branches()
         return True
+
+    @log_decorator
+    def show_my_restaurants(self):
+        pass
