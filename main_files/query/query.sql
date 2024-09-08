@@ -124,3 +124,13 @@ WHERE id = '% s';
 -- Yangi restaurant qo'shish uchun query
 INSERT INTO restaurants (NAME, USERNAME, PASSWORD, ROLE, PHONE_NUMBER, COMPANY_FEE, OWNER_ID)
 VALUES ('%s', ' %s', '%s', '%s', '%s', '%s', '%s');
+
+-- Restaurantni update qilish uchun query
+UPDATE restaurants
+SET NAME         = '%s',
+    USERNAME     = '%s',
+    PASSWORD     = '%s',
+    ROLE         = '%s',
+    PHONE_NUMBER = '%s',
+    COMPANY_FEE  = '%s'
+WHERE ID = '%s';
