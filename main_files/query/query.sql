@@ -140,3 +140,8 @@ select *
 from branch
          inner join restaurants r on branch.RESTAURANT_ID = r.ID
 WHERE r.OWNER_ID = '%s';
+
+-- Restaran egasini barcha restaralarini ko'rish uchun query
+SELECT *
+FROM restaurants
+WHERE OWNER_ID = '%s'
