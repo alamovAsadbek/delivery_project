@@ -83,7 +83,6 @@ class AdminRestaurantMenu:
         print(f"Owner ID: {get_data['id']}\nOwner full name: {get_data['last_name']} {get_data['first_name']}\n"
               f"Owner username: {get_data['username']}")
         print("Creating restaurant...")
-        username = ''
         if update_data is None:
             username = get_username(table_name='restaurants', name=name, key='restaurant')
         else:
