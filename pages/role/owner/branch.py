@@ -17,3 +17,7 @@ class Branch:
         if not pagination.page_tab():
             return False
         return True
+
+    @log_decorator
+    def create_branch(self):
+        pass
