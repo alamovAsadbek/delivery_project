@@ -120,3 +120,7 @@ WHERE id = '%s';
 DELETE
 FROM users
 WHERE id = '% s';
+
+-- Yangi restaurant qo'shish uchun query
+INSERT INTO restaurants (NAME, USERNAME, PASSWORD, ROLE, PHONE_NUMBER, COMPANY_FEE, OWNER_ID)
+VALUES ('%s', ' %s', '%s', '%s', '%s', '%s', '%s')
