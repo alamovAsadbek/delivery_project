@@ -30,8 +30,8 @@ class Auth:
             result_get = execute_query(query, params, fetch='one')
             if result_get is not None:
                 query = '''
-                UPDATE users set is_login=TRUE WHERE id=%s
-                '''
+                UPDATE {} set is_login=TRUE WHERE id=%s
+                '''.format(table)
                 params = (result_get['id'],)
                 threading.Thread(target=execute_query, args=(query, params)).start()
                 print("Login successful!")
