@@ -68,7 +68,11 @@ def execute_query(query, params=None, fetch=None):
 
 @log_decorator
 def get_active_user():
-    query = '''
-    SELECT * FROM USERS WHERE IS_LOGIN=TRUE;
-    '''
-    return execute_query(query, fetch='one')
+    tables = ['users', 'restaurants', 'branch']
+    for table in tables:
+        query = '''
+        SELECT * FROM {} WHERE IS_LOGIN=TRUE;
+        '''.format(table)
+        active_user = execute_query(query, fetch='one')
+        if active_user is not None:
+            return active_user
