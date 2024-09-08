@@ -124,6 +124,7 @@ class AdminRestaurantMenu:
         if restaurant_id == 0:
             print('Exit')
             return False
+        print("Waiting...")
         get_data = self.get_data(restaurant_id, table_name='restaurants')
         if get_data is None:
             print("Restaurant does not exist")
