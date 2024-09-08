@@ -83,10 +83,13 @@ class Branch:
             params = (
                 branch_name, location, hash_password, username, get_restaurant['phone_number'], get_restaurant['id'],)
         threading.Thread(target=execute_query, args=(query, params)).start()
+        if update_data is None:
+            print("Branch created!")
+        else:
+            print("Branch updated!")
         return True
 
     @log_decorator
     def update_branch(self):
-        get_restaurant = self.select_restaurant()
-        if get_restaurant is None:
-            return False
+        self.show_all_branches()
+        branch_id = input("Enter branch ID to update or 0 to exit: ").strip()
