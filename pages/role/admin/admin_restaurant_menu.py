@@ -12,10 +12,15 @@ class AdminRestaurantMenu:
 
     @log_decorator
     def get_data(self, data_id, table_name, role=None):
+        if role is None:
+            query = '''
+            SELECT * FROM {} WHERE id=%s
+            '''.format(table_name)
+            return execute_query(query, data_id, fetch='one')
         query = '''
-        SELECT * FROM {} WHERE id=%s
-        '''.format(table_name)
-        return execute_query(query, data_id, fetch='one')
+        SELECT * FROM {} WHERE id=%s and role=%s
+        '''
+        return execute_query(query, data_id, role)
 
     @log_decorator
     def show_all_restaurants(self):
