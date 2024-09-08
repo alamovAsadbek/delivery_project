@@ -52,27 +52,41 @@ class Branch:
         return True
 
     @log_decorator
-    def create_branch(self):
-        get_restaurant = self.select_restaurant()
+    def create_branch(self, update_data=None):
+        get_restaurant = update_data
+        if update_data is None:
+            get_restaurant = self.select_restaurant()
         if get_restaurant is None:
             return False
         print(f"\nRestaurant: {get_restaurant['name']}\n")
         branch_name = input("Enter branch name to create: ").strip()
         location = input("Enter location to create: ").strip()
         print("Creating branch...")
-        username = get_username(table_name='branch', name=branch_name, key='filial')
+        if update_data is not None:
+            username = update_data['username']
+        else:
+            username = get_username(table_name='branch', name=branch_name, key='filial')
         password = generate_password()
         hash_password = hashlib.sha256(password.__str__().encode('utf-8')).hexdigest()
         print(f"\nBranch username: {print_bold(username, 32)} and branch password: {print_bold(password, 32)}\n")
-        query = '''
-        INSERT INTO branch(name, location, restaurant_id, password, username, phone_number, role)
-         VALUES (%s, %s, %s, %s, %s, %s, %s)
-        '''
-        params = (branch_name, location, get_restaurant['id'], hash_password, username,
-                  get_restaurant['phone_number'], 'branch')
+        if update_data is None:
+            query = '''
+            INSERT INTO branch(name, location, restaurant_id, password, username, phone_number, role)
+             VALUES (%s, %s, %s, %s, %s, %s, %s)
+            '''
+            params = (branch_name, location, get_restaurant['id'], hash_password, username,
+                      get_restaurant['phone_number'], 'branch')
+        else:
+            query = '''
+            UPDATE branch SET name=%s, location=%s, password=%s, username=%s, phone_number=%s where id=%s
+            '''
+            params = (
+                branch_name, location, hash_password, username, get_restaurant['phone_number'], get_restaurant['id'],)
         threading.Thread(target=execute_query, args=(query, params)).start()
         return True
 
     @log_decorator
     def update_branch(self):
-        pass
+        get_restaurant = self.select_restaurant()
+        if get_restaurant is None:
+            return False
