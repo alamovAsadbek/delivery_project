@@ -87,7 +87,7 @@ def admin_restaurants_menu():
         elif user_input == 2:
             admin.update_restaurant()
         elif user_input == 3:
-            pass
+            admin.delete_restaurant()
         elif user_input == 4:
             admin.show_all_restaurants()
         elif user_input == 5:
