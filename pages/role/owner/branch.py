@@ -1,4 +1,7 @@
+from components.color_text.color_text import print_bold
 from components.pagination.pagination import Pagination
+from components.random_password.generate_password import generate_password
+from components.random_username.generate_username import get_username
 from main_files.database.db_setting import execute_query, get_active_user
 from main_files.decorator.decorator_func import log_decorator
 from pages.role.owner.owner_restaurant_menu import OwnerRestaurantMenu
@@ -55,4 +58,6 @@ class Branch:
         location = input("Enter location to create: ").strip()
         phone_number = input("Enter phone number (+998): ").strip()
         print("Creating branch...")
-
+        username = get_username(table_name='branch', name=branch_name, key='filial')
+        password = generate_password()
+        print(f"\nBranch username: {print_bold(username, 32)} and branch password: {print_bold(password, 32)}\n")
