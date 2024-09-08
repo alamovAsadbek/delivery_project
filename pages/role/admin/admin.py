@@ -51,5 +51,6 @@ class Admin:
 
     @log_decorator
     def delete_restaurant(self):
-        pass
+        self.__restaurant_menu.delete_restaurant()
+        return True
     # / for restaurant menu
