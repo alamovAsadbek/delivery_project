@@ -46,5 +46,6 @@ class Admin:
 
     @log_decorator
     def update_restaurant(self):
-        pass
+        self.__restaurant_menu.update_restaurant()
+        return True
     # / for restaurant menu
