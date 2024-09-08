@@ -107,5 +107,7 @@ class Branch:
         if result is None:
             print("Branch not found")
             return False
+        print(f"Branch name: {result['name']}\nLocation: {result['location']}\nUsername: {result['username']}\n"
+              f"Phone Number: {result['phone_number']}\n")
         self.create_branch(update_data=result)
         return True
