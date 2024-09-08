@@ -15,6 +15,10 @@ class OwnerRestaurant:
         self.__branch.show_all_branches()
         return True
 
+    @log_decorator
+    def create_branch(self):
+        pass
+
     # /branch menu
 
     # restaurants menu
