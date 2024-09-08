@@ -131,6 +131,6 @@ class AdminRestaurantMenu:
             return False
         print(f"\nRestaurant ID: {restaurant_id}\nRestaurant name: {get_data['name']}\n"
               f"Restaurant username: {get_data['username']}\nRestaurant phone number: {get_data['phone_number']}\n"
-              f"Company fee: {get_data['COMPANY_FEE']}\nCreated at: {get_data['created_at']}\n")
+              f"Company fee: {get_data['company_fee']}\nCreated at: {get_data['created_at']}\n")
         self.create_restaurant(update_data=get_data)
         return True
