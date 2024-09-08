@@ -2,11 +2,14 @@ from main_files.decorator.decorator_func import log_decorator
 
 
 class OwnerRestaurantMenu:
+    def __init__(self):
+        pass
+
     @log_decorator
     def show_all_owner_restaurants(self):
-        query='''
+        query = '''
         SELECT *
         FROM restaurants
         WHERE OWNER_ID = %s
         '''
-        params=()
+        params = ()
