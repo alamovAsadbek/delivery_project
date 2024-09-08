@@ -13,6 +13,12 @@ class Branch:
     def select_restaurant(self):
         self.__restaurant_menu.show_all_owner_restaurants()
         restaurant_id: int = int(input("Enter restaurant ID: ").strip())
+        print("Waiting...")
+        query = '''
+        SELECT * FROM RESTAURANT WHERE OWNER_ID=%s and ID=%s
+        '''
+        params = (self.active_user['id'], restaurant_id,)
+        return execute_query(query, params, fetch='one')
 
     @log_decorator
     def show_all_branches(self):
