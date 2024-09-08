@@ -152,4 +152,4 @@ WHERE OWNER_ID = '%s';
 SELECT *
 FROM restaurants
 WHERE OWNER_ID = '% s'
-  and ID = '% s'
+  and ID = '% s';
