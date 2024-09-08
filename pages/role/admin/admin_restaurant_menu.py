@@ -71,9 +71,9 @@ class AdminRestaurantMenu:
               f"Owner username: {get_data['username']}")
         print("Creating restaurant...")
         username = get_username(table_name='restaurants', name=name, key='restaurant')
-        password=generate_password()
-        print(f"{name.capitalize()} restaurant username: {print_bold(username, 64)} "
-              f"and password: {print_bold(password, 64)}")
+        password = generate_password()
+        print(f"{name.capitalize()} restaurant username: {print_bold(username, 34)} "
+              f"and password: {print_bold(password, 34)}")
         # query='''
         # INSERT INTO restaurants (NAME, USERNAME, PASSWORD, ROLE, PHONE_NUMBER, COMPANY_FEE, OWNER_ID)
         # VALUES (%s, %s, %s, %s, %s, %s, %s)
