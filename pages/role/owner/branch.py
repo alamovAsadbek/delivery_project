@@ -36,8 +36,8 @@ class Branch:
         query = '''
         select * from branch where RESTAURANT_ID=%s
         '''
-        params = (get_restaurant['id'], )
-        result = execute_query(query, params, fetch='one')
+        params = (get_restaurant['id'],)
+        result = execute_query(query, params, fetch='all')
         print(result)
 
     @log_decorator
