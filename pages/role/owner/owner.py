@@ -8,4 +8,5 @@ class OwnerRestaurant:
 
     @log_decorator
     def show_all_branches(self):
-        pass
+        self.__branch.show_all_branches()
+        return True
