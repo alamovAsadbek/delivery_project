@@ -99,4 +99,7 @@ class AdminRestaurantMenu:
 
     @log_decorator
     def update_restaurant(self):
-        pass
+        if not self.show_all_restaurants():
+            return False
+        restaurant_id = int(input("Enter restaurant id: ").strip())
+
