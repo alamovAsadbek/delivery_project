@@ -23,6 +23,7 @@ def __generate_username(name: str, key=None) -> str:
 @log_decorator
 def get_username(name: str, table_name, key=None) -> str:
     while True:
+        name = name.lower()
         username = __generate_username(name, key=key)
         query = '''
          SELECT * FROM {} WHERE USERNAME=%s;
