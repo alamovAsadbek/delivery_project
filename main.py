@@ -3,6 +3,7 @@ import threading
 from main_files.decorator.decorator_func import log_decorator
 from pages.auth.auth import Auth
 from pages.role.admin.admin import Admin
+from pages.role.owner.owner import OwnerRestaurant
 
 
 @log_decorator
@@ -187,6 +188,8 @@ def branch_menu():
 # owner restaurant
 @log_decorator
 def owner_restaurant_menu():
+    print("Waiting...")
+    owner = OwnerRestaurant()
     text = '''
 1. My restaurants
 2. Branch
@@ -196,13 +199,16 @@ def owner_restaurant_menu():
     try:
         user_input = int(input('Choose menu: '))
         if user_input == 1:
-            pass
+            owner.show_my_restaurants()
         elif user_input == 2:
             pass
         elif user_input == 3:
             print("Logout")
             threading.Thread(target=auth.logout).start()
-            auth_menu()
+            return auth_menu()
+        else:
+            print("Wrong input")
+        owner_restaurant_menu()
     except Exception as e:
         print(f'Error: {e}')
         owner_restaurant_menu()
