@@ -11,7 +11,10 @@ class Branch:
     @log_decorator
     def select_restaurant(self):
         self.__restaurant_menu.show_all_owner_restaurants()
-        restaurant_id: int = int(input("Enter restaurant ID: ").strip())
+        restaurant_id: int = int(input("Enter restaurant ID or enter 0 to exit: ").strip())
+        if restaurant_id == 0:
+            print("Exit")
+            return False
         print("Waiting...")
         query = '''
         SELECT * FROM RESTAURANTS WHERE OWNER_ID=%s and ID=%s
