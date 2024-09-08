@@ -209,7 +209,7 @@ def owner_restaurant_menu():
 
 
 @log_decorator
-def owner_products_menu():
+def owner_branch_menu():
     pass
 
 
