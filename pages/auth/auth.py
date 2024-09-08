@@ -29,6 +29,12 @@ class Auth:
             params = (username, password)
             result_get = execute_query(query, params, fetch='one')
             if result_get is not None:
+                query = '''
+                UPDATE users set is_login=TRUE WHERE id=%s
+                '''
+                params = (result_get['id'],)
+                threading.Thread(target=execute_query, args=(query, params)).start()
+                print("Login successful!")
                 return {'is_login': True, 'role': result_get['role']}
         return {'is_login': False, 'role': 'user'}
 
