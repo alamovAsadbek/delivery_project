@@ -1,10 +1,12 @@
 from main_files.decorator.decorator_func import log_decorator
 from pages.role.owner.branch import Branch
+from pages.role.owner.owner_restaurant_menu import OwnerRestaurantMenu
 
 
 class OwnerRestaurant:
     def __init__(self):
         self.__branch = Branch()
+        self.__restaurant = OwnerRestaurantMenu()
 
     @log_decorator
     def show_all_branches(self):
@@ -13,4 +15,5 @@ class OwnerRestaurant:
 
     @log_decorator
     def show_my_restaurants(self):
-        pass
+        self.__restaurant.show_all_owner_restaurants()
+        return True
