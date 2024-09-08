@@ -44,7 +44,7 @@ class AdminRestaurantMenu:
                                     display_keys=['ID', 'FIRST NAME', 'LAST NAME', 'USERNAME', 'PHONE NUMBER'])
             pagination.page_tab()
             print('\n1. Add new owner\n2. Enter user id')
-            user_choice = int(input("Enter user id: ").strip())
+            user_choice = int(input("Choose menu: ").strip())
             if user_choice == 1:
                 self.__user_menu.create_user()
                 print("User created successfully")
