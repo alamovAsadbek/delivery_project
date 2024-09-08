@@ -1,3 +1,4 @@
+from components.pagination.pagination import Pagination
 from main_files.database.db_setting import execute_query, get_active_user
 from main_files.decorator.decorator_func import log_decorator
 from pages.role.owner.owner_restaurant_menu import OwnerRestaurantMenu
@@ -38,7 +39,11 @@ class Branch:
         '''
         params = (get_restaurant['id'],)
         result = execute_query(query, params, fetch='all')
-        print(result)
+        pagination = Pagination(table_name='branch', data=result,
+                                table_keys=['id', 'name', 'username', 'phone_number', 'location'],
+                                display_keys=['ID', 'Name', 'Username', 'Phone Number', 'Location'])
+        pagination.page_tab()
+        return True
 
     @log_decorator
     def create_branch(self):
