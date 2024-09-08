@@ -189,9 +189,8 @@ def branch_menu():
 def owner_restaurant_menu():
     text = '''
 1. My restaurants
-2. Product
-3. Branch
-4. Logout
+2. Branch
+3. Logout
     '''
     print(text)
     try:
@@ -201,8 +200,6 @@ def owner_restaurant_menu():
         elif user_input == 2:
             pass
         elif user_input == 3:
-            pass
-        elif user_input == 4:
             print("Logout")
             threading.Thread(target=auth.logout).start()
             auth_menu()
