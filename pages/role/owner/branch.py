@@ -72,3 +72,7 @@ class Branch:
                   get_restaurant['phone_number'], 'branch')
         threading.Thread(target=execute_query, args=(query, params)).start()
         return True
+
+    @log_decorator
+    def update_branch(self):
+        pass
