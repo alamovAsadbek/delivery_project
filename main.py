@@ -137,8 +137,18 @@ def admin_users_menu():
 # user menu
 @log_decorator
 def user_menu():
-    print("This is user menu")
-    pass
+    text = '''
+1. Foods
+2. My orders
+3. Basket
+4. Logout
+    '''
+    print(text)
+    try:
+        pass
+    except Exception as e:
+        print(f'Error: {e}')
+        user_menu()
 
 
 # /user menu
