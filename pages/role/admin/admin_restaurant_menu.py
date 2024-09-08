@@ -120,7 +120,10 @@ class AdminRestaurantMenu:
     def update_restaurant(self):
         if not self.show_all_restaurants():
             return False
-        restaurant_id = int(input("Enter restaurant id: ").strip())
+        restaurant_id = int(input("Enter the restaurant ID or enter 0 to exit: ").strip())
+        if restaurant_id == 0:
+            print('Exit')
+            return False
         get_data = self.get_data(restaurant_id, table_name='restaurants')
         if get_data is None:
             print("Restaurant does not exist")
