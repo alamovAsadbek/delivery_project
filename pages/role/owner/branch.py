@@ -92,4 +92,15 @@ class Branch:
     @log_decorator
     def update_branch(self):
         self.show_all_branches()
-        branch_id = input("Enter branch ID to update or 0 to exit: ").strip()
+        branch_id = int(input("Enter branch ID to update or 0 to exit: ").strip())
+        if branch_id == 0:
+            print("Exit")
+            return False
+        query = '''
+        SELECT * FROM branch WHERE id=%s
+        '''
+        params = (branch_id.__str__(),)
+        result = execute_query(query, params, fetch='one')
+        if result is None:
+            print("Branch not found")
+            return False
