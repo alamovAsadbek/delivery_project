@@ -76,4 +76,3 @@ def get_active_user():
         active_user = execute_query(query, fetch='one')
         if active_user is not None:
             return active_user
-
