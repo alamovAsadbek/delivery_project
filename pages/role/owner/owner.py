@@ -20,6 +20,10 @@ class OwnerRestaurant:
         self.__branch.create_branch()
         return True
 
+    @log_decorator
+    def update_branch(self):
+        pass
+
     # /branch menu
 
     # restaurants menu
