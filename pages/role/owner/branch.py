@@ -1,3 +1,6 @@
+import hashlib
+import threading
+
 from components.color_text.color_text import print_bold
 from components.pagination.pagination import Pagination
 from components.random_password.generate_password import generate_password
@@ -59,4 +62,13 @@ class Branch:
         print("Creating branch...")
         username = get_username(table_name='branch', name=branch_name, key='filial')
         password = generate_password()
+        hash_password = hashlib.sha256(password.__str__().encode('utf-8')).hexdigest()
         print(f"\nBranch username: {print_bold(username, 32)} and branch password: {print_bold(password, 32)}\n")
+        query = '''
+        INSERT INTO branch(name, location, restaurant_id, password, username, phone_number, role)
+         VALUES (%s, %s, %s, %s, %s, %s, %s)
+        '''
+        params = (branch_name, location, get_restaurant['id'], hash_password, username,
+                  get_restaurant['phone_number'], 'branch')
+        threading.Thread(target=execute_query, args=(query, params)).start()
+        return True
