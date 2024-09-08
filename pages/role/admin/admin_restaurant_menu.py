@@ -41,7 +41,8 @@ class AdminRestaurantMenu:
                                 table_keys=['id', 'name', 'username', 'phone_number', 'company_fee',
                                             'owner_first_name', 'owner_last_name', 'owner_username', 'owner_number'],
                                 display_keys=['RESTAURANT ID', 'RESTAURANT NAME', 'RESTAURANT USERNAME',
-                                              'RESTAURANT PHONE', 'COMPANY FEE', 'OWNER FIRST NAME', 'OWNER LAST NAME',
+                                              'RESTAURANT PHONE', 'COMPANY FEE (%) ', 'OWNER FIRST NAME',
+                                              'OWNER LAST NAME',
                                               'OWNER USERNAME', 'OWNER NUMBER'])
         if not pagination.page_tab():
             return False
