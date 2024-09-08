@@ -211,6 +211,11 @@ def owner_restaurant_menu():
         owner_restaurant_menu()
 
 
+@log_decorator
+def owner_products_menu():
+    pass
+
+
 # / owner restaurant
 
 # courier menu
