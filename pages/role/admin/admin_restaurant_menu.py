@@ -1,3 +1,5 @@
+import hashlib
+import threading
 import time
 
 from components.color_text.color_text import print_bold
@@ -74,9 +76,12 @@ class AdminRestaurantMenu:
         password = generate_password()
         print(f"{name.capitalize()} restaurant username: {print_bold(username, 34)} "
               f"and password: {print_bold(password, 34)}")
-        # query='''
-        # INSERT INTO restaurants (NAME, USERNAME, PASSWORD, ROLE, PHONE_NUMBER, COMPANY_FEE, OWNER_ID)
-        # VALUES (%s, %s, %s, %s, %s, %s, %s)
-        # '''
-        # params=(name)
+        has_password = hashlib.sha256(password.__str__().encode('utf-8')).hexdigest()
+        query = '''
+        INSERT INTO restaurants (NAME, USERNAME, PASSWORD, ROLE, PHONE_NUMBER, COMPANY_FEE, OWNER_ID)
+        VALUES (%s, %s, %s, %s, %s, %s, %s)
+        '''
+        params = (name, username, has_password, 'restaurant', phone_number, company_fee, get_data['id'])
+        threading.Thread(target=execute_query, args=(query, params)).start()
         print("Restaurant created successfully")
+        return True
