@@ -19,7 +19,7 @@ class Branch:
         query = '''
         SELECT * FROM RESTAURANTS WHERE OWNER_ID=%s and ID=%s
         '''
-        params = (self.active_user['id'], restaurant_id,)
+        params = (self.active_user['id'], restaurant_id.__str__(),)
         result = execute_query(query, params, fetch='one')
         if result is None:
             print("Restaurant not found")
