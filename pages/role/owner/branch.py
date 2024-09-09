@@ -113,3 +113,7 @@ class Branch:
             f"Phone Number: {print_bold(result['phone_number'], 34)}\n")
         self.create_branch(update_data=result)
         return True
+
+    @log_decorator
+    def delete_branch(self):
+        pass
