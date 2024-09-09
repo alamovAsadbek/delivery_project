@@ -17,6 +17,7 @@ class Branch:
 
     @log_decorator
     def select_restaurant(self):
+        print("\nChoose restaurant")
         self.__restaurant_menu.show_all_owner_restaurants()
         restaurant_id: int = int(input("Enter restaurant ID or enter 0 to exit: ").strip())
         if restaurant_id == 0:
@@ -36,7 +37,6 @@ class Branch:
     @log_decorator
     def show_all_branches(self):
         print("Waiting...")
-        print("Choose restaurant")
         get_restaurant = self.select_restaurant()
         if get_restaurant is None:
             return False
