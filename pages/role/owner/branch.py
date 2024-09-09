@@ -121,3 +121,28 @@ class Branch:
         if branch_id == 0:
             print("Exit")
             return False
+        query = '''
+        SELECT * FROM branch b
+        INNER JOIN restaurants r on branch.RESTAURANT_ID = r.ID
+        WHERE r.owner_id=%s AND b.id=%s
+        '''
+        params = (self.active_user['id'], branch_id.__str__(),)
+        result = execute_query(query, params, fetch='one')
+        if result is None:
+            print("Branch not found")
+            return False
+        confirm = input("Are you sure you want to delete this branch? (y/n) ").strip().lower()
+        if confirm == 'y':
+            query = '''
+            DELETE FROM branch b where b.id=%s
+            '''
+            params = (branch_id.__str__(),)
+            threading.Thread(target=execute_query, args=(query, params)).start()
+            print("Branch deleted!")
+            return True
+        elif confirm == 'n':
+            print("Exit")
+            return False
+        else:
+            print("Invalid input")
+            return False
