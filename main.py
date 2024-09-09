@@ -233,7 +233,7 @@ def owner_branch_menu():
         elif user_input == 2:
             owner.update_branch()
         elif user_input == 3:
-            pass
+            owner.delete_branch()
         elif user_input == 4:
             owner.show_all_branches()
         elif user_input == 5:
