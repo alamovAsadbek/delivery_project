@@ -25,6 +25,10 @@ class OwnerRestaurant:
         self.__branch.update_branch()
         return True
 
+    @log_decorator
+    def delete_branch(self):
+        pass
+
     # /branch menu
 
     # restaurants menu
