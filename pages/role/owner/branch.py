@@ -116,4 +116,8 @@ class Branch:
 
     @log_decorator
     def delete_branch(self):
-        pass
+        self.show_all_branches()
+        branch_id = int(input("Enter branch ID to delete or 0 to exit: ").strip())
+        if branch_id == 0:
+            print("Exit")
+            return False
