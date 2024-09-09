@@ -36,6 +36,7 @@ class Branch:
     @log_decorator
     def show_all_branches(self):
         print("Waiting...")
+        print("Choose restaurant")
         get_restaurant = self.select_restaurant()
         if get_restaurant is None:
             return False
