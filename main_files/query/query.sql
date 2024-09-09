@@ -153,3 +153,10 @@ SELECT *
 FROM restaurants
 WHERE OWNER_ID = '% s'
   and ID = '% s';
+
+-- Restaran egasi uzini branchini o'chirish uchun
+SELECT *
+FROM branch b
+         INNER JOIN restaurants r on branch.RESTAURANT_ID = r.ID
+WHERE r.owner_id = '% s'
+  AND b.id = '% s'
