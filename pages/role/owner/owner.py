@@ -27,7 +27,8 @@ class OwnerRestaurant:
 
     @log_decorator
     def delete_branch(self):
-        pass
+        self.__branch.delete_branch()
+        return True
 
     # /branch menu
 
